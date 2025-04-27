@@ -1,0 +1,30 @@
+feature,importance
+Clinical.N.Stage_1,0.09759511
+Overall.Stage_IIIb,0.07937897
+clinical.T.Stage_3.0,0.07880599
+clinical.T.Stage_4.0,0.07329894
+gender_male,0.0608411
+age,0.059173845
+Histology_large cell,0.05639785
+Histology_squamous cell carcinoma,0.045497872
+correlation,0.04105044
+Clinical.N.Stage_2,0.039641738
+dissimilarity,0.037347518
+compactn,0.034270383
+Histology_adenocarcinoma,0.034119286
+Histology_nos,0.032799438
+homogeneity,0.03110172
+Clinical.N.Stage_3,0.027576838
+volume_m,0.027521739
+max_diamt,0.027310155
+surface_mr,0.027097048
+contrast,0.026842024
+Overall.Stage_II,0.024977228
+Overall.Stage_IIIa,0.020314328
+clinical.T.Stage_2.0,0.017040486
+clinical.T.Stage_5.0,0.0
+clinical.T.Stage_Unknown,0.0
+Clinical.M.Stage_3,0.0
+Clinical.M.Stage_1,0.0
+Clinical.N.Stage_4,0.0
+Overall.Stage_Unknown,0.0
