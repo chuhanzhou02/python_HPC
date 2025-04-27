@@ -17,8 +17,8 @@ The project consists of two main datasets:
 ### Installation
 1. Clone the repository:
 ```bash
-git clone [repository-url]
-cd [repository-name]
+git clone https://github.com/chuhanzhou02/python_HPC.git
+cd python_HPC
 ```
 
 2. Create and activate a virtual environment (recommended):
