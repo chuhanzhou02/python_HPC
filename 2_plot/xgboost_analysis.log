@@ -1,0 +1,985 @@
+2025-04-27 18:19:10,687 - INFO - 开始加载和预处理数据...
+2025-04-27 18:19:10,688 - INFO - 开始加载数据...
+2025-04-27 18:19:10,699 - INFO - 原始数据信息:
+2025-04-27 18:19:10,699 - INFO - 肿瘤特征数据形状: (117, 5)
+2025-04-27 18:19:10,700 - INFO - 临床数据形状: (165, 40)
+2025-04-27 18:19:10,701 - INFO - RNA-seq数据形状: (130, 21)
+2025-04-27 18:19:10,703 - INFO - 处理后的PatientID示例:
+2025-04-27 18:19:10,704 - INFO - 肿瘤特征: 0    R01-023
+1    R01-038
+2    R01-099
+3    R01-128
+4    R01-098
+Name: PatientID, dtype: object
+2025-04-27 18:19:10,705 - INFO - 临床数据: 0    R01-003
+1    R01-004
+2    R01-005
+3    R01-006
+4    R01-007
+Name: Case ID, dtype: object
+2025-04-27 18:19:10,706 - INFO - RNA-seq数据: 0    R01-023
+1    R01-024
+2    R01-006
+3    R01-153
+4    R01-031
+Name: PatientID, dtype: object
+2025-04-27 18:19:10,707 - INFO - 开始合并数据...
+2025-04-27 18:19:10,709 - INFO - 合并肿瘤特征和临床数据后的形状: (152, 45)
+2025-04-27 18:19:10,711 - INFO - 最终合并后的数据形状: (152, 65)
+2025-04-27 18:19:10,714 - INFO - 目标变量分布:
+2025-04-27 18:19:10,715 - INFO - deadstatus.event
+0    0.710526
+1    0.289474
+Name: proportion, dtype: float64
+2025-04-27 18:19:10,716 - INFO - 实际排除的特征: ['PatientID', 'Case ID', 'deadstatus.event', 'Survival Status', 'Time to Death (days)', 'Date of Death', 'Date of Last Known Alive', 'Recurrence', 'Recurrence Location', 'Date of Recurrence']
+2025-04-27 18:19:10,769 - INFO - 开始标准化数值特征...
+2025-04-27 18:19:10,774 - INFO - 数值特征已标准化
+2025-04-27 18:19:10,784 - INFO - 创建的交互特征数量: 12
+2025-04-27 18:19:10,784 - INFO - 交互特征列表:
+2025-04-27 18:19:10,784 - INFO - ['volume_m_surface_mr', 'volume_m_max_diamt', 'surface_mr_max_diamt', 'Age at Histological Diagnosis_volume_m', 'Age at Histological Diagnosis_surface_mr', 'Age at Histological Diagnosis_max_diamt', 'Gender_Female_volume_m', 'Gender_Female_surface_mr', 'Gender_Female_max_diamt', 'Gender_Male_volume_m', 'Gender_Male_surface_mr', 'Gender_Male_max_diamt']
+2025-04-27 18:19:10,788 - INFO - 交互特征已标准化
+2025-04-27 18:19:10,789 - INFO - 最终用于建模的特征数量: 497
+2025-04-27 18:19:10,789 - INFO - 特征类型统计:
+2025-04-27 18:19:10,790 - INFO - 数值特征: 27
+2025-04-27 18:19:10,791 - INFO - 分类特征: 37
+2025-04-27 18:19:10,791 - INFO - 交互特征: 12
+2025-04-27 18:19:10,791 - INFO - 进行单模态分析...
+2025-04-27 18:19:11,018 - INFO - 影像特征评估结果:
+2025-04-27 18:19:11,018 - INFO - accuracy: 0.5555 ± 0.0377
+2025-04-27 18:19:11,018 - INFO - precision: 0.5337 ± 0.0262
+2025-04-27 18:19:11,018 - INFO - recall: 0.9268 ± 0.0615
+2025-04-27 18:19:11,018 - INFO - f1: 0.6757 ± 0.0207
+2025-04-27 18:19:11,019 - INFO - auc: 0.6064 ± 0.0672
+2025-04-27 18:19:13,040 - INFO - 临床特征评估结果:
+2025-04-27 18:19:13,041 - INFO - accuracy: 0.6944 ± 0.0520
+2025-04-27 18:19:13,041 - INFO - precision: 0.6402 ± 0.0631
+2025-04-27 18:19:13,041 - INFO - recall: 0.9355 ± 0.0684
+2025-04-27 18:19:13,041 - INFO - f1: 0.7550 ± 0.0248
+2025-04-27 18:19:13,041 - INFO - auc: 0.8874 ± 0.0163
+2025-04-27 18:19:13,042 - INFO - 单模态分析结果: {'imaging': {'accuracy': {'mean': np.float64(0.5554968287526428), 'std': np.float64(0.03767427623637511)}, 'precision': {'mean': np.float64(0.5336501072119187), 'std': np.float64(0.026233976961990813)}, 'recall': {'mean': np.float64(0.9268398268398268), 'std': np.float64(0.061471861471861455)}, 'f1': {'mean': np.float64(0.6757184129429892), 'std': np.float64(0.020707246797748217)}, 'auc': {'mean': np.float64(0.6064049586776858), 'std': np.float64(0.06722121368470169)}}, 'clinical': {'accuracy': {'mean': np.float64(0.6943974630021141), 'std': np.float64(0.05198911618940342)}, 'precision': {'mean': np.float64(0.6401799954431533), 'std': np.float64(0.06312108813268415)}, 'recall': {'mean': np.float64(0.9354978354978355), 'std': np.float64(0.06839826839826839)}, 'f1': {'mean': np.float64(0.7550274659690576), 'std': np.float64(0.024828090019577156)}, 'auc': {'mean': np.float64(0.8873868555686737), 'std': np.float64(0.016318586324855368)}}}
+2025-04-27 18:19:13,042 - INFO - 进行多模态融合分析...
+2025-04-27 18:19:14,590 - INFO - 多模态融合评估结果:
+2025-04-27 18:19:14,590 - INFO - accuracy: 0.7036 ± 0.0480
+2025-04-27 18:19:14,590 - INFO - precision: 0.6447 ± 0.0541
+2025-04-27 18:19:14,590 - INFO - recall: 0.9355 ± 0.0469
+2025-04-27 18:19:14,590 - INFO - f1: 0.7604 ± 0.0275
+2025-04-27 18:19:14,590 - INFO - auc: 0.8634 ± 0.0412
+2025-04-27 18:19:14,592 - INFO - 多模态融合结果: {'accuracy': {'mean': np.float64(0.7035940803382663), 'std': np.float64(0.047994802955307274)}, 'precision': {'mean': np.float64(0.64474800482865), 'std': np.float64(0.05410203867683451)}, 'recall': {'mean': np.float64(0.9354978354978355), 'std': np.float64(0.04689332870362644)}, 'f1': {'mean': np.float64(0.760425876805187), 'std': np.float64(0.027475427378855805)}, 'auc': {'mean': np.float64(0.8634002361275088), 'std': np.float64(0.04123891060222837)}}
+2025-04-27 18:19:14,593 - INFO - 进行特征重要性分析...
+2025-04-27 18:19:15,263 - ERROR - 特征重要性分析出错: [Errno 2] No such file or directory: 'result2/feature_importance.png'
+2025-04-27 18:19:15,264 - ERROR - 程序运行出错: [Errno 2] No such file or directory: 'result2/feature_importance.png'
+2025-04-27 18:33:34,569 - INFO - 开始加载和预处理数据...
+2025-04-27 18:33:34,570 - INFO - 开始加载数据...
+2025-04-27 18:33:34,581 - INFO - 原始数据信息:
+2025-04-27 18:33:34,581 - INFO - 肿瘤特征数据形状: (117, 5)
+2025-04-27 18:33:34,581 - INFO - 临床数据形状: (165, 40)
+2025-04-27 18:33:34,582 - INFO - RNA-seq数据形状: (130, 21)
+2025-04-27 18:33:34,584 - INFO - 处理后的PatientID示例:
+2025-04-27 18:33:34,585 - INFO - 肿瘤特征: 0    R01-023
+1    R01-038
+2    R01-099
+3    R01-128
+4    R01-098
+Name: PatientID, dtype: object
+2025-04-27 18:33:34,586 - INFO - 临床数据: 0    R01-003
+1    R01-004
+2    R01-005
+3    R01-006
+4    R01-007
+Name: Case ID, dtype: object
+2025-04-27 18:33:34,586 - INFO - RNA-seq数据: 0    R01-023
+1    R01-024
+2    R01-006
+3    R01-153
+4    R01-031
+Name: PatientID, dtype: object
+2025-04-27 18:33:34,586 - INFO - 开始合并数据...
+2025-04-27 18:33:34,591 - INFO - 合并肿瘤特征和临床数据后的形状: (152, 45)
+2025-04-27 18:33:34,594 - INFO - 最终合并后的数据形状: (152, 65)
+2025-04-27 18:33:34,597 - INFO - 目标变量分布:
+2025-04-27 18:33:34,598 - INFO - deadstatus.event
+0    0.710526
+1    0.289474
+Name: proportion, dtype: float64
+2025-04-27 18:33:34,599 - INFO - 实际排除的特征: ['PatientID', 'Case ID', 'deadstatus.event', 'Survival Status', 'Time to Death (days)', 'Date of Death', 'Date of Last Known Alive', 'Recurrence', 'Recurrence Location', 'Date of Recurrence']
+2025-04-27 18:33:34,638 - INFO - 开始标准化数值特征...
+2025-04-27 18:33:34,643 - INFO - 数值特征已标准化
+2025-04-27 18:33:34,649 - INFO - 创建的交互特征数量: 12
+2025-04-27 18:33:34,649 - INFO - 交互特征列表:
+2025-04-27 18:33:34,650 - INFO - ['volume_m_surface_mr', 'volume_m_max_diamt', 'surface_mr_max_diamt', 'Age at Histological Diagnosis_volume_m', 'Age at Histological Diagnosis_surface_mr', 'Age at Histological Diagnosis_max_diamt', 'Gender_Female_volume_m', 'Gender_Female_surface_mr', 'Gender_Female_max_diamt', 'Gender_Male_volume_m', 'Gender_Male_surface_mr', 'Gender_Male_max_diamt']
+2025-04-27 18:33:34,654 - INFO - 交互特征已标准化
+2025-04-27 18:33:34,655 - INFO - 最终用于建模的特征数量: 497
+2025-04-27 18:33:34,655 - INFO - 特征类型统计:
+2025-04-27 18:33:34,656 - INFO - 数值特征: 27
+2025-04-27 18:33:34,656 - INFO - 分类特征: 37
+2025-04-27 18:33:34,656 - INFO - 交互特征: 12
+2025-04-27 18:33:34,656 - INFO - 进行单模态分析...
+2025-04-27 18:33:34,828 - INFO - 影像特征评估结果:
+2025-04-27 18:33:34,828 - INFO - accuracy: 0.5555 ± 0.0377
+2025-04-27 18:33:34,828 - INFO - precision: 0.5337 ± 0.0262
+2025-04-27 18:33:34,828 - INFO - recall: 0.9268 ± 0.0615
+2025-04-27 18:33:34,828 - INFO - f1: 0.6757 ± 0.0207
+2025-04-27 18:33:34,829 - INFO - auc: 0.6064 ± 0.0672
+2025-04-27 18:33:36,671 - INFO - 临床特征评估结果:
+2025-04-27 18:33:36,671 - INFO - accuracy: 0.6944 ± 0.0520
+2025-04-27 18:33:36,671 - INFO - precision: 0.6402 ± 0.0631
+2025-04-27 18:33:36,672 - INFO - recall: 0.9355 ± 0.0684
+2025-04-27 18:33:36,672 - INFO - f1: 0.7550 ± 0.0248
+2025-04-27 18:33:36,672 - INFO - auc: 0.8874 ± 0.0163
+2025-04-27 18:33:36,672 - INFO - 单模态分析结果: {'imaging': {'accuracy': {'mean': np.float64(0.5554968287526428), 'std': np.float64(0.03767427623637511)}, 'precision': {'mean': np.float64(0.5336501072119187), 'std': np.float64(0.026233976961990813)}, 'recall': {'mean': np.float64(0.9268398268398268), 'std': np.float64(0.061471861471861455)}, 'f1': {'mean': np.float64(0.6757184129429892), 'std': np.float64(0.020707246797748217)}, 'auc': {'mean': np.float64(0.6064049586776858), 'std': np.float64(0.06722121368470169)}}, 'clinical': {'accuracy': {'mean': np.float64(0.6943974630021141), 'std': np.float64(0.05198911618940342)}, 'precision': {'mean': np.float64(0.6401799954431533), 'std': np.float64(0.06312108813268415)}, 'recall': {'mean': np.float64(0.9354978354978355), 'std': np.float64(0.06839826839826839)}, 'f1': {'mean': np.float64(0.7550274659690576), 'std': np.float64(0.024828090019577156)}, 'auc': {'mean': np.float64(0.8873868555686737), 'std': np.float64(0.016318586324855368)}}}
+2025-04-27 18:33:36,672 - INFO - 进行多模态融合分析...
+2025-04-27 18:33:38,274 - INFO - 多模态融合评估结果:
+2025-04-27 18:33:38,274 - INFO - accuracy: 0.7036 ± 0.0480
+2025-04-27 18:33:38,275 - INFO - precision: 0.6447 ± 0.0541
+2025-04-27 18:33:38,275 - INFO - recall: 0.9355 ± 0.0469
+2025-04-27 18:33:38,275 - INFO - f1: 0.7604 ± 0.0275
+2025-04-27 18:33:38,275 - INFO - auc: 0.8634 ± 0.0412
+2025-04-27 18:33:38,278 - INFO - 多模态融合结果: {'accuracy': {'mean': np.float64(0.7035940803382663), 'std': np.float64(0.047994802955307274)}, 'precision': {'mean': np.float64(0.64474800482865), 'std': np.float64(0.05410203867683451)}, 'recall': {'mean': np.float64(0.9354978354978355), 'std': np.float64(0.04689332870362644)}, 'f1': {'mean': np.float64(0.760425876805187), 'std': np.float64(0.027475427378855805)}, 'auc': {'mean': np.float64(0.8634002361275088), 'std': np.float64(0.04123891060222837)}}
+2025-04-27 18:33:38,278 - INFO - 进行特征重要性分析...
+2025-04-27 18:33:38,982 - INFO - 特征重要性分析完成
+2025-04-27 18:33:38,982 - INFO - Top 10重要特征:
+2025-04-27 18:33:38,982 - INFO -                                             feature  importance
+115                             Ethnicity_Caucasian    0.065346
+160                                          %GG_0%    0.053208
+181  Histology _NSCLC NOS (not otherwise specified)    0.046329
+193                         Pathological N stage_N2    0.040745
+14                                           ZNF174    0.036540
+195                         Pathological M stage_M0    0.034013
+133                                   Pack Years_30    0.033243
+138                                   Pack Years_40    0.030534
+225                          Adjuvant Treatment_Yes    0.028830
+494                            Gender_Male_volume_m    0.024688
+2025-04-27 18:33:38,990 - INFO - 进行模型解释性分析...
+2025-04-27 18:33:41,300 - ERROR - 模型解释性分析出错: [Errno 13] Permission denied: '/shap_values.csv'
+2025-04-27 18:33:41,301 - ERROR - 程序运行出错: [Errno 13] Permission denied: '/shap_values.csv'
+2025-04-27 18:43:11,233 - INFO - 开始加载和预处理数据...
+2025-04-27 18:43:11,233 - INFO - 开始加载数据...
+2025-04-27 18:43:11,244 - INFO - 原始数据信息:
+2025-04-27 18:43:11,244 - INFO - 肿瘤特征数据形状: (117, 5)
+2025-04-27 18:43:11,245 - INFO - 临床数据形状: (165, 40)
+2025-04-27 18:43:11,245 - INFO - RNA-seq数据形状: (130, 21)
+2025-04-27 18:43:11,247 - INFO - 处理后的PatientID示例:
+2025-04-27 18:43:11,247 - INFO - 肿瘤特征: 0    R01-023
+1    R01-038
+2    R01-099
+3    R01-128
+4    R01-098
+Name: PatientID, dtype: object
+2025-04-27 18:43:11,248 - INFO - 临床数据: 0    R01-003
+1    R01-004
+2    R01-005
+3    R01-006
+4    R01-007
+Name: Case ID, dtype: object
+2025-04-27 18:43:11,248 - INFO - RNA-seq数据: 0    R01-023
+1    R01-024
+2    R01-006
+3    R01-153
+4    R01-031
+Name: PatientID, dtype: object
+2025-04-27 18:43:11,250 - INFO - 开始合并数据...
+2025-04-27 18:43:11,252 - INFO - 合并肿瘤特征和临床数据后的形状: (152, 45)
+2025-04-27 18:43:11,254 - INFO - 最终合并后的数据形状: (152, 65)
+2025-04-27 18:43:11,257 - INFO - 目标变量分布:
+2025-04-27 18:43:11,258 - INFO - deadstatus.event
+0    0.710526
+1    0.289474
+Name: proportion, dtype: float64
+2025-04-27 18:43:11,259 - INFO - 实际排除的特征: ['PatientID', 'Case ID', 'deadstatus.event', 'Survival Status', 'Time to Death (days)', 'Date of Death', 'Date of Last Known Alive', 'Recurrence', 'Recurrence Location', 'Date of Recurrence']
+2025-04-27 18:43:11,302 - INFO - 开始标准化数值特征...
+2025-04-27 18:43:11,306 - INFO - 数值特征已标准化
+2025-04-27 18:43:11,310 - INFO - 创建的交互特征数量: 12
+2025-04-27 18:43:11,311 - INFO - 交互特征列表:
+2025-04-27 18:43:11,311 - INFO - ['volume_m_surface_mr', 'volume_m_max_diamt', 'surface_mr_max_diamt', 'Age at Histological Diagnosis_volume_m', 'Age at Histological Diagnosis_surface_mr', 'Age at Histological Diagnosis_max_diamt', 'Gender_Female_volume_m', 'Gender_Female_surface_mr', 'Gender_Female_max_diamt', 'Gender_Male_volume_m', 'Gender_Male_surface_mr', 'Gender_Male_max_diamt']
+2025-04-27 18:43:11,315 - INFO - 交互特征已标准化
+2025-04-27 18:43:11,316 - INFO - 最终用于建模的特征数量: 497
+2025-04-27 18:43:11,316 - INFO - 特征类型统计:
+2025-04-27 18:43:11,317 - INFO - 数值特征: 27
+2025-04-27 18:43:11,317 - INFO - 分类特征: 37
+2025-04-27 18:43:11,317 - INFO - 交互特征: 12
+2025-04-27 18:43:11,317 - INFO - 进行单模态分析...
+2025-04-27 18:43:11,488 - INFO - 影像特征评估结果:
+2025-04-27 18:43:11,488 - INFO - accuracy: 0.5555 ± 0.0377
+2025-04-27 18:43:11,489 - INFO - precision: 0.5337 ± 0.0262
+2025-04-27 18:43:11,489 - INFO - recall: 0.9268 ± 0.0615
+2025-04-27 18:43:11,489 - INFO - f1: 0.6757 ± 0.0207
+2025-04-27 18:43:11,489 - INFO - auc: 0.6064 ± 0.0672
+2025-04-27 18:43:13,420 - INFO - 临床特征评估结果:
+2025-04-27 18:43:13,420 - INFO - accuracy: 0.6944 ± 0.0520
+2025-04-27 18:43:13,420 - INFO - precision: 0.6402 ± 0.0631
+2025-04-27 18:43:13,421 - INFO - recall: 0.9355 ± 0.0684
+2025-04-27 18:43:13,421 - INFO - f1: 0.7550 ± 0.0248
+2025-04-27 18:43:13,421 - INFO - auc: 0.8874 ± 0.0163
+2025-04-27 18:43:13,422 - INFO - 单模态分析结果: {'imaging': {'accuracy': {'mean': np.float64(0.5554968287526428), 'std': np.float64(0.03767427623637511)}, 'precision': {'mean': np.float64(0.5336501072119187), 'std': np.float64(0.026233976961990813)}, 'recall': {'mean': np.float64(0.9268398268398268), 'std': np.float64(0.061471861471861455)}, 'f1': {'mean': np.float64(0.6757184129429892), 'std': np.float64(0.020707246797748217)}, 'auc': {'mean': np.float64(0.6064049586776858), 'std': np.float64(0.06722121368470169)}}, 'clinical': {'accuracy': {'mean': np.float64(0.6943974630021141), 'std': np.float64(0.05198911618940342)}, 'precision': {'mean': np.float64(0.6401799954431533), 'std': np.float64(0.06312108813268415)}, 'recall': {'mean': np.float64(0.9354978354978355), 'std': np.float64(0.06839826839826839)}, 'f1': {'mean': np.float64(0.7550274659690576), 'std': np.float64(0.024828090019577156)}, 'auc': {'mean': np.float64(0.8873868555686737), 'std': np.float64(0.016318586324855368)}}}
+2025-04-27 18:43:13,423 - INFO - 进行多模态融合分析...
+2025-04-27 18:43:14,972 - INFO - 多模态融合评估结果:
+2025-04-27 18:43:14,972 - INFO - accuracy: 0.7036 ± 0.0480
+2025-04-27 18:43:14,973 - INFO - precision: 0.6447 ± 0.0541
+2025-04-27 18:43:14,973 - INFO - recall: 0.9355 ± 0.0469
+2025-04-27 18:43:14,973 - INFO - f1: 0.7604 ± 0.0275
+2025-04-27 18:43:14,973 - INFO - auc: 0.8634 ± 0.0412
+2025-04-27 18:43:14,975 - INFO - 多模态融合结果: {'accuracy': {'mean': np.float64(0.7035940803382663), 'std': np.float64(0.047994802955307274)}, 'precision': {'mean': np.float64(0.64474800482865), 'std': np.float64(0.05410203867683451)}, 'recall': {'mean': np.float64(0.9354978354978355), 'std': np.float64(0.04689332870362644)}, 'f1': {'mean': np.float64(0.760425876805187), 'std': np.float64(0.027475427378855805)}, 'auc': {'mean': np.float64(0.8634002361275088), 'std': np.float64(0.04123891060222837)}}
+2025-04-27 18:43:14,976 - INFO - 进行特征重要性分析...
+2025-04-27 18:43:15,703 - INFO - 特征重要性分析完成
+2025-04-27 18:43:15,703 - INFO - Top 10重要特征:
+2025-04-27 18:43:15,703 - INFO -                                             feature  importance
+115                             Ethnicity_Caucasian    0.065346
+160                                          %GG_0%    0.053208
+181  Histology _NSCLC NOS (not otherwise specified)    0.046329
+193                         Pathological N stage_N2    0.040745
+14                                           ZNF174    0.036540
+195                         Pathological M stage_M0    0.034013
+133                                   Pack Years_30    0.033243
+138                                   Pack Years_40    0.030534
+225                          Adjuvant Treatment_Yes    0.028830
+494                            Gender_Male_volume_m    0.024688
+2025-04-27 18:43:15,713 - INFO - 进行模型解释性分析...
+2025-04-27 18:43:18,088 - ERROR - 模型解释性分析出错: [Errno 13] Permission denied: '/shap_values.csv'
+2025-04-27 18:43:18,088 - ERROR - 程序运行出错: [Errno 13] Permission denied: '/shap_values.csv'
+2025-04-27 18:45:04,180 - INFO - 开始加载和预处理数据...
+2025-04-27 18:45:04,180 - INFO - 开始加载数据...
+2025-04-27 18:45:04,191 - INFO - 原始数据信息:
+2025-04-27 18:45:04,192 - INFO - 肿瘤特征数据形状: (117, 5)
+2025-04-27 18:45:04,192 - INFO - 临床数据形状: (165, 40)
+2025-04-27 18:45:04,192 - INFO - RNA-seq数据形状: (130, 21)
+2025-04-27 18:45:04,194 - INFO - 处理后的PatientID示例:
+2025-04-27 18:45:04,195 - INFO - 肿瘤特征: 0    R01-023
+1    R01-038
+2    R01-099
+3    R01-128
+4    R01-098
+Name: PatientID, dtype: object
+2025-04-27 18:45:04,196 - INFO - 临床数据: 0    R01-003
+1    R01-004
+2    R01-005
+3    R01-006
+4    R01-007
+Name: Case ID, dtype: object
+2025-04-27 18:45:04,197 - INFO - RNA-seq数据: 0    R01-023
+1    R01-024
+2    R01-006
+3    R01-153
+4    R01-031
+Name: PatientID, dtype: object
+2025-04-27 18:45:04,197 - INFO - 开始合并数据...
+2025-04-27 18:45:04,200 - INFO - 合并肿瘤特征和临床数据后的形状: (152, 45)
+2025-04-27 18:45:04,201 - INFO - 最终合并后的数据形状: (152, 65)
+2025-04-27 18:45:04,203 - INFO - 目标变量分布:
+2025-04-27 18:45:04,204 - INFO - deadstatus.event
+0    0.710526
+1    0.289474
+Name: proportion, dtype: float64
+2025-04-27 18:45:04,206 - INFO - 实际排除的特征: ['PatientID', 'Case ID', 'deadstatus.event', 'Survival Status', 'Time to Death (days)', 'Date of Death', 'Date of Last Known Alive', 'Recurrence', 'Recurrence Location', 'Date of Recurrence']
+2025-04-27 18:45:04,246 - INFO - 开始标准化数值特征...
+2025-04-27 18:45:04,251 - INFO - 数值特征已标准化
+2025-04-27 18:45:04,255 - INFO - 创建的交互特征数量: 12
+2025-04-27 18:45:04,255 - INFO - 交互特征列表:
+2025-04-27 18:45:04,255 - INFO - ['volume_m_surface_mr', 'volume_m_max_diamt', 'surface_mr_max_diamt', 'Age at Histological Diagnosis_volume_m', 'Age at Histological Diagnosis_surface_mr', 'Age at Histological Diagnosis_max_diamt', 'Gender_Female_volume_m', 'Gender_Female_surface_mr', 'Gender_Female_max_diamt', 'Gender_Male_volume_m', 'Gender_Male_surface_mr', 'Gender_Male_max_diamt']
+2025-04-27 18:45:04,260 - INFO - 交互特征已标准化
+2025-04-27 18:45:04,262 - INFO - 最终用于建模的特征数量: 497
+2025-04-27 18:45:04,262 - INFO - 特征类型统计:
+2025-04-27 18:45:04,262 - INFO - 数值特征: 27
+2025-04-27 18:45:04,262 - INFO - 分类特征: 37
+2025-04-27 18:45:04,262 - INFO - 交互特征: 12
+2025-04-27 18:45:04,263 - INFO - 进行单模态分析...
+2025-04-27 18:45:04,443 - INFO - 影像特征评估结果:
+2025-04-27 18:45:04,444 - INFO - accuracy: 0.5555 ± 0.0377
+2025-04-27 18:45:04,446 - INFO - precision: 0.5337 ± 0.0262
+2025-04-27 18:45:04,446 - INFO - recall: 0.9268 ± 0.0615
+2025-04-27 18:45:04,446 - INFO - f1: 0.6757 ± 0.0207
+2025-04-27 18:45:04,446 - INFO - auc: 0.6064 ± 0.0672
+2025-04-27 18:45:06,364 - INFO - 临床特征评估结果:
+2025-04-27 18:45:06,365 - INFO - accuracy: 0.6944 ± 0.0520
+2025-04-27 18:45:06,365 - INFO - precision: 0.6402 ± 0.0631
+2025-04-27 18:45:06,365 - INFO - recall: 0.9355 ± 0.0684
+2025-04-27 18:45:06,365 - INFO - f1: 0.7550 ± 0.0248
+2025-04-27 18:45:06,365 - INFO - auc: 0.8874 ± 0.0163
+2025-04-27 18:45:06,366 - INFO - 单模态分析结果: {'imaging': {'accuracy': {'mean': np.float64(0.5554968287526428), 'std': np.float64(0.03767427623637511)}, 'precision': {'mean': np.float64(0.5336501072119187), 'std': np.float64(0.026233976961990813)}, 'recall': {'mean': np.float64(0.9268398268398268), 'std': np.float64(0.061471861471861455)}, 'f1': {'mean': np.float64(0.6757184129429892), 'std': np.float64(0.020707246797748217)}, 'auc': {'mean': np.float64(0.6064049586776858), 'std': np.float64(0.06722121368470169)}}, 'clinical': {'accuracy': {'mean': np.float64(0.6943974630021141), 'std': np.float64(0.05198911618940342)}, 'precision': {'mean': np.float64(0.6401799954431533), 'std': np.float64(0.06312108813268415)}, 'recall': {'mean': np.float64(0.9354978354978355), 'std': np.float64(0.06839826839826839)}, 'f1': {'mean': np.float64(0.7550274659690576), 'std': np.float64(0.024828090019577156)}, 'auc': {'mean': np.float64(0.8873868555686737), 'std': np.float64(0.016318586324855368)}}}
+2025-04-27 18:45:06,366 - INFO - 进行多模态融合分析...
+2025-04-27 18:45:08,121 - INFO - 多模态融合评估结果:
+2025-04-27 18:45:08,121 - INFO - accuracy: 0.7036 ± 0.0480
+2025-04-27 18:45:08,121 - INFO - precision: 0.6447 ± 0.0541
+2025-04-27 18:45:08,121 - INFO - recall: 0.9355 ± 0.0469
+2025-04-27 18:45:08,121 - INFO - f1: 0.7604 ± 0.0275
+2025-04-27 18:45:08,121 - INFO - auc: 0.8634 ± 0.0412
+2025-04-27 18:45:08,124 - INFO - 多模态融合结果: {'accuracy': {'mean': np.float64(0.7035940803382663), 'std': np.float64(0.047994802955307274)}, 'precision': {'mean': np.float64(0.64474800482865), 'std': np.float64(0.05410203867683451)}, 'recall': {'mean': np.float64(0.9354978354978355), 'std': np.float64(0.04689332870362644)}, 'f1': {'mean': np.float64(0.760425876805187), 'std': np.float64(0.027475427378855805)}, 'auc': {'mean': np.float64(0.8634002361275088), 'std': np.float64(0.04123891060222837)}}
+2025-04-27 18:45:08,124 - INFO - 进行特征重要性分析...
+2025-04-27 18:45:08,830 - INFO - 特征重要性分析完成
+2025-04-27 18:45:08,830 - INFO - Top 10重要特征:
+2025-04-27 18:45:08,832 - INFO -                                             feature  importance
+115                             Ethnicity_Caucasian    0.065346
+160                                          %GG_0%    0.053208
+181  Histology _NSCLC NOS (not otherwise specified)    0.046329
+193                         Pathological N stage_N2    0.040745
+14                                           ZNF174    0.036540
+195                         Pathological M stage_M0    0.034013
+133                                   Pack Years_30    0.033243
+138                                   Pack Years_40    0.030534
+225                          Adjuvant Treatment_Yes    0.028830
+494                            Gender_Male_volume_m    0.024688
+2025-04-27 18:45:08,841 - INFO - 进行模型解释性分析...
+2025-04-27 18:45:11,161 - ERROR - 模型解释性分析出错: [Errno 13] Permission denied: '/shap_values.csv'
+2025-04-27 18:45:11,162 - ERROR - 程序运行出错: [Errno 13] Permission denied: '/shap_values.csv'
+2025-04-27 18:51:09,284 - INFO - 开始加载和预处理数据...
+2025-04-27 18:51:09,285 - INFO - 开始加载数据...
+2025-04-27 18:51:09,295 - INFO - 原始数据信息:
+2025-04-27 18:51:09,295 - INFO - 肿瘤特征数据形状: (117, 5)
+2025-04-27 18:51:09,295 - INFO - 临床数据形状: (165, 40)
+2025-04-27 18:51:09,296 - INFO - RNA-seq数据形状: (130, 21)
+2025-04-27 18:51:09,298 - INFO - 处理后的PatientID示例:
+2025-04-27 18:51:09,299 - INFO - 肿瘤特征: 0    R01-023
+1    R01-038
+2    R01-099
+3    R01-128
+4    R01-098
+Name: PatientID, dtype: object
+2025-04-27 18:51:09,299 - INFO - 临床数据: 0    R01-003
+1    R01-004
+2    R01-005
+3    R01-006
+4    R01-007
+Name: Case ID, dtype: object
+2025-04-27 18:51:09,300 - INFO - RNA-seq数据: 0    R01-023
+1    R01-024
+2    R01-006
+3    R01-153
+4    R01-031
+Name: PatientID, dtype: object
+2025-04-27 18:51:09,300 - INFO - 开始合并数据...
+2025-04-27 18:51:09,303 - INFO - 合并肿瘤特征和临床数据后的形状: (152, 45)
+2025-04-27 18:51:09,306 - INFO - 最终合并后的数据形状: (152, 65)
+2025-04-27 18:51:09,308 - INFO - 目标变量分布:
+2025-04-27 18:51:09,309 - INFO - deadstatus.event
+0    0.710526
+1    0.289474
+Name: proportion, dtype: float64
+2025-04-27 18:51:09,311 - INFO - 实际排除的特征: ['PatientID', 'Case ID', 'deadstatus.event', 'Survival Status', 'Time to Death (days)', 'Date of Death', 'Date of Last Known Alive', 'Recurrence', 'Recurrence Location', 'Date of Recurrence']
+2025-04-27 18:51:09,353 - INFO - 开始标准化数值特征...
+2025-04-27 18:51:09,358 - INFO - 数值特征已标准化
+2025-04-27 18:51:09,363 - INFO - 创建的交互特征数量: 12
+2025-04-27 18:51:09,364 - INFO - 交互特征列表:
+2025-04-27 18:51:09,364 - INFO - ['volume_m_surface_mr', 'volume_m_max_diamt', 'surface_mr_max_diamt', 'Age at Histological Diagnosis_volume_m', 'Age at Histological Diagnosis_surface_mr', 'Age at Histological Diagnosis_max_diamt', 'Gender_Female_volume_m', 'Gender_Female_surface_mr', 'Gender_Female_max_diamt', 'Gender_Male_volume_m', 'Gender_Male_surface_mr', 'Gender_Male_max_diamt']
+2025-04-27 18:51:09,368 - INFO - 交互特征已标准化
+2025-04-27 18:51:09,369 - INFO - 最终用于建模的特征数量: 497
+2025-04-27 18:51:09,369 - INFO - 特征类型统计:
+2025-04-27 18:51:09,369 - INFO - 数值特征: 27
+2025-04-27 18:51:09,370 - INFO - 分类特征: 37
+2025-04-27 18:51:09,370 - INFO - 交互特征: 12
+2025-04-27 18:51:09,370 - INFO - 进行单模态分析...
+2025-04-27 18:51:09,540 - INFO - 影像特征评估结果:
+2025-04-27 18:51:09,540 - INFO - accuracy: 0.5555 ± 0.0377
+2025-04-27 18:51:09,540 - INFO - precision: 0.5337 ± 0.0262
+2025-04-27 18:51:09,541 - INFO - recall: 0.9268 ± 0.0615
+2025-04-27 18:51:09,541 - INFO - f1: 0.6757 ± 0.0207
+2025-04-27 18:51:09,541 - INFO - auc: 0.6064 ± 0.0672
+2025-04-27 18:51:11,403 - INFO - 临床特征评估结果:
+2025-04-27 18:51:11,404 - INFO - accuracy: 0.6944 ± 0.0520
+2025-04-27 18:51:11,404 - INFO - precision: 0.6402 ± 0.0631
+2025-04-27 18:51:11,404 - INFO - recall: 0.9355 ± 0.0684
+2025-04-27 18:51:11,404 - INFO - f1: 0.7550 ± 0.0248
+2025-04-27 18:51:11,404 - INFO - auc: 0.8874 ± 0.0163
+2025-04-27 18:51:11,405 - INFO - 单模态分析结果: {'imaging': {'accuracy': {'mean': np.float64(0.5554968287526428), 'std': np.float64(0.03767427623637511)}, 'precision': {'mean': np.float64(0.5336501072119187), 'std': np.float64(0.026233976961990813)}, 'recall': {'mean': np.float64(0.9268398268398268), 'std': np.float64(0.061471861471861455)}, 'f1': {'mean': np.float64(0.6757184129429892), 'std': np.float64(0.020707246797748217)}, 'auc': {'mean': np.float64(0.6064049586776858), 'std': np.float64(0.06722121368470169)}}, 'clinical': {'accuracy': {'mean': np.float64(0.6943974630021141), 'std': np.float64(0.05198911618940342)}, 'precision': {'mean': np.float64(0.6401799954431533), 'std': np.float64(0.06312108813268415)}, 'recall': {'mean': np.float64(0.9354978354978355), 'std': np.float64(0.06839826839826839)}, 'f1': {'mean': np.float64(0.7550274659690576), 'std': np.float64(0.024828090019577156)}, 'auc': {'mean': np.float64(0.8873868555686737), 'std': np.float64(0.016318586324855368)}}}
+2025-04-27 18:51:11,405 - INFO - 进行多模态融合分析...
+2025-04-27 18:51:12,988 - INFO - 多模态融合评估结果:
+2025-04-27 18:51:12,989 - INFO - accuracy: 0.7036 ± 0.0480
+2025-04-27 18:51:12,989 - INFO - precision: 0.6447 ± 0.0541
+2025-04-27 18:51:12,989 - INFO - recall: 0.9355 ± 0.0469
+2025-04-27 18:51:12,989 - INFO - f1: 0.7604 ± 0.0275
+2025-04-27 18:51:12,989 - INFO - auc: 0.8634 ± 0.0412
+2025-04-27 18:51:12,993 - INFO - 多模态融合结果: {'accuracy': {'mean': np.float64(0.7035940803382663), 'std': np.float64(0.047994802955307274)}, 'precision': {'mean': np.float64(0.64474800482865), 'std': np.float64(0.05410203867683451)}, 'recall': {'mean': np.float64(0.9354978354978355), 'std': np.float64(0.04689332870362644)}, 'f1': {'mean': np.float64(0.760425876805187), 'std': np.float64(0.027475427378855805)}, 'auc': {'mean': np.float64(0.8634002361275088), 'std': np.float64(0.04123891060222837)}}
+2025-04-27 18:51:12,993 - INFO - 进行特征重要性分析...
+2025-04-27 18:51:13,712 - INFO - 特征重要性分析完成
+2025-04-27 18:51:13,714 - INFO - Top 10重要特征:
+2025-04-27 18:51:13,714 - INFO -                                             feature  importance
+115                             Ethnicity_Caucasian    0.065346
+160                                          %GG_0%    0.053208
+181  Histology _NSCLC NOS (not otherwise specified)    0.046329
+193                         Pathological N stage_N2    0.040745
+14                                           ZNF174    0.036540
+195                         Pathological M stage_M0    0.034013
+133                                   Pack Years_30    0.033243
+138                                   Pack Years_40    0.030534
+225                          Adjuvant Treatment_Yes    0.028830
+494                            Gender_Male_volume_m    0.024688
+2025-04-27 18:51:13,723 - INFO - 进行模型解释性分析...
+2025-04-27 18:51:16,062 - INFO - 模型解释性分析完成
+2025-04-27 18:51:16,062 - INFO - Top 10重要特征（基于SHAP值）:
+2025-04-27 18:51:16,063 - INFO -                      feature  shap_importance
+160                   %GG_0%         0.937360
+133            Pack Years_30         0.568962
+18                     NOP14         0.507921
+10                      IRF4         0.446090
+193  Pathological N stage_N2         0.315711
+115      Ethnicity_Caucasian         0.304433
+14                    ZNF174         0.301747
+24                      HSF4         0.258372
+17                     KLHL2         0.236527
+15                      RYBP         0.226194
+2025-04-27 18:51:16,076 - INFO - 分析完成，结果已保存到2_data/analysis_results.csv
+2025-04-27 19:46:14,172 - INFO - 开始加载和预处理数据...
+2025-04-27 19:46:14,172 - INFO - 开始加载数据...
+2025-04-27 19:46:14,184 - INFO - 原始数据信息:
+2025-04-27 19:46:14,184 - INFO - 肿瘤特征数据形状: (117, 5)
+2025-04-27 19:46:14,185 - INFO - 临床数据形状: (165, 40)
+2025-04-27 19:46:14,185 - INFO - RNA-seq数据形状: (130, 21)
+2025-04-27 19:46:14,186 - INFO - 处理后的PatientID示例:
+2025-04-27 19:46:14,187 - INFO - 肿瘤特征: 0    R01-023
+1    R01-038
+2    R01-099
+3    R01-128
+4    R01-098
+Name: PatientID, dtype: object
+2025-04-27 19:46:14,188 - INFO - 临床数据: 0    R01-003
+1    R01-004
+2    R01-005
+3    R01-006
+4    R01-007
+Name: Case ID, dtype: object
+2025-04-27 19:46:14,189 - INFO - RNA-seq数据: 0    R01-023
+1    R01-024
+2    R01-006
+3    R01-153
+4    R01-031
+Name: PatientID, dtype: object
+2025-04-27 19:46:14,189 - INFO - 开始合并数据...
+2025-04-27 19:46:14,192 - INFO - 合并肿瘤特征和临床数据后的形状: (152, 45)
+2025-04-27 19:46:14,195 - INFO - 最终合并后的数据形状: (152, 65)
+2025-04-27 19:46:14,198 - INFO - 目标变量分布:
+2025-04-27 19:46:14,229 - INFO - deadstatus.event
+0    0.710526
+1    0.289474
+Name: proportion, dtype: float64
+2025-04-27 19:46:14,251 - INFO - 实际排除的特征: ['PatientID', 'Case ID', 'deadstatus.event', 'Survival Status', 'Time to Death (days)', 'Date of Death', 'Date of Last Known Alive', 'Recurrence', 'Recurrence Location', 'Date of Recurrence']
+2025-04-27 19:46:14,314 - INFO - 开始标准化数值特征...
+2025-04-27 19:46:14,320 - INFO - 数值特征已标准化
+2025-04-27 19:46:14,327 - INFO - 创建的交互特征数量: 12
+2025-04-27 19:46:14,328 - INFO - 交互特征列表:
+2025-04-27 19:46:14,328 - INFO - ['volume_m_surface_mr', 'volume_m_max_diamt', 'surface_mr_max_diamt', 'Age at Histological Diagnosis_volume_m', 'Age at Histological Diagnosis_surface_mr', 'Age at Histological Diagnosis_max_diamt', 'Gender_Female_volume_m', 'Gender_Female_surface_mr', 'Gender_Female_max_diamt', 'Gender_Male_volume_m', 'Gender_Male_surface_mr', 'Gender_Male_max_diamt']
+2025-04-27 19:46:14,332 - INFO - 交互特征已标准化
+2025-04-27 19:46:14,333 - INFO - 最终用于建模的特征数量: 497
+2025-04-27 19:46:14,334 - INFO - 特征类型统计:
+2025-04-27 19:46:14,334 - INFO - 数值特征: 27
+2025-04-27 19:46:14,334 - INFO - 分类特征: 37
+2025-04-27 19:46:14,334 - INFO - 交互特征: 12
+2025-04-27 19:46:14,335 - INFO - 进行单模态分析...
+2025-04-27 19:46:14,512 - INFO - 影像特征评估结果:
+2025-04-27 19:46:14,512 - INFO - accuracy: 0.5555 ± 0.0377
+2025-04-27 19:46:14,512 - INFO - precision: 0.5337 ± 0.0262
+2025-04-27 19:46:14,512 - INFO - recall: 0.9268 ± 0.0615
+2025-04-27 19:46:14,512 - INFO - f1: 0.6757 ± 0.0207
+2025-04-27 19:46:14,512 - INFO - auc: 0.6064 ± 0.0672
+2025-04-27 19:46:16,466 - INFO - 临床特征评估结果:
+2025-04-27 19:46:16,466 - INFO - accuracy: 0.6944 ± 0.0520
+2025-04-27 19:46:16,466 - INFO - precision: 0.6402 ± 0.0631
+2025-04-27 19:46:16,467 - INFO - recall: 0.9355 ± 0.0684
+2025-04-27 19:46:16,467 - INFO - f1: 0.7550 ± 0.0248
+2025-04-27 19:46:16,467 - INFO - auc: 0.8874 ± 0.0163
+2025-04-27 19:46:16,468 - INFO - 单模态分析结果: {'imaging': {'accuracy': {'mean': np.float64(0.5554968287526428), 'std': np.float64(0.03767427623637511)}, 'precision': {'mean': np.float64(0.5336501072119187), 'std': np.float64(0.026233976961990813)}, 'recall': {'mean': np.float64(0.9268398268398268), 'std': np.float64(0.061471861471861455)}, 'f1': {'mean': np.float64(0.6757184129429892), 'std': np.float64(0.020707246797748217)}, 'auc': {'mean': np.float64(0.6064049586776858), 'std': np.float64(0.06722121368470169)}}, 'clinical': {'accuracy': {'mean': np.float64(0.6943974630021141), 'std': np.float64(0.05198911618940342)}, 'precision': {'mean': np.float64(0.6401799954431533), 'std': np.float64(0.06312108813268415)}, 'recall': {'mean': np.float64(0.9354978354978355), 'std': np.float64(0.06839826839826839)}, 'f1': {'mean': np.float64(0.7550274659690576), 'std': np.float64(0.024828090019577156)}, 'auc': {'mean': np.float64(0.8873868555686737), 'std': np.float64(0.016318586324855368)}}}
+2025-04-27 19:46:16,468 - INFO - 进行多模态融合分析...
+2025-04-27 19:46:18,124 - INFO - 多模态融合评估结果:
+2025-04-27 19:46:18,124 - INFO - accuracy: 0.7036 ± 0.0480
+2025-04-27 19:46:18,125 - INFO - precision: 0.6447 ± 0.0541
+2025-04-27 19:46:18,125 - INFO - recall: 0.9355 ± 0.0469
+2025-04-27 19:46:18,125 - INFO - f1: 0.7604 ± 0.0275
+2025-04-27 19:46:18,125 - INFO - auc: 0.8634 ± 0.0412
+2025-04-27 19:46:18,128 - INFO - 多模态融合结果: {'accuracy': {'mean': np.float64(0.7035940803382663), 'std': np.float64(0.047994802955307274)}, 'precision': {'mean': np.float64(0.64474800482865), 'std': np.float64(0.05410203867683451)}, 'recall': {'mean': np.float64(0.9354978354978355), 'std': np.float64(0.04689332870362644)}, 'f1': {'mean': np.float64(0.760425876805187), 'std': np.float64(0.027475427378855805)}, 'auc': {'mean': np.float64(0.8634002361275088), 'std': np.float64(0.04123891060222837)}}
+2025-04-27 19:46:18,128 - INFO - 进行特征重要性分析...
+2025-04-27 19:46:18,913 - INFO - 特征重要性分析完成
+2025-04-27 19:46:18,913 - INFO - Top 10重要特征:
+2025-04-27 19:46:18,914 - INFO -                                             feature  importance
+115                             Ethnicity_Caucasian    0.065346
+160                                          %GG_0%    0.053208
+181  Histology _NSCLC NOS (not otherwise specified)    0.046329
+193                         Pathological N stage_N2    0.040745
+14                                           ZNF174    0.036540
+195                         Pathological M stage_M0    0.034013
+133                                   Pack Years_30    0.033243
+138                                   Pack Years_40    0.030534
+225                          Adjuvant Treatment_Yes    0.028830
+494                            Gender_Male_volume_m    0.024688
+2025-04-27 19:46:18,922 - INFO - 进行模型解释性分析...
+2025-04-27 19:46:21,607 - INFO - 模型解释性分析完成
+2025-04-27 19:46:21,607 - INFO - Top 10重要特征（基于SHAP值）:
+2025-04-27 19:46:21,607 - INFO -                      feature  shap_importance
+160                   %GG_0%         0.937360
+133            Pack Years_30         0.568962
+18                     NOP14         0.507921
+10                      IRF4         0.446090
+193  Pathological N stage_N2         0.315711
+115      Ethnicity_Caucasian         0.304433
+14                    ZNF174         0.301747
+24                      HSF4         0.258372
+17                     KLHL2         0.236527
+15                      RYBP         0.226194
+2025-04-27 19:46:21,619 - INFO - 分析完成，结果已保存到2_data/analysis_results.csv
+2025-04-27 19:49:03,811 - INFO - 开始加载和预处理数据...
+2025-04-27 19:49:03,811 - INFO - 开始加载数据...
+2025-04-27 19:49:03,823 - INFO - 原始数据信息:
+2025-04-27 19:49:03,823 - INFO - 肿瘤特征数据形状: (117, 5)
+2025-04-27 19:49:03,823 - INFO - 临床数据形状: (165, 40)
+2025-04-27 19:49:03,824 - INFO - RNA-seq数据形状: (130, 21)
+2025-04-27 19:49:03,825 - INFO - 处理后的PatientID示例:
+2025-04-27 19:49:03,827 - INFO - 肿瘤特征: 0    R01-023
+1    R01-038
+2    R01-099
+3    R01-128
+4    R01-098
+Name: PatientID, dtype: object
+2025-04-27 19:49:03,828 - INFO - 临床数据: 0    R01-003
+1    R01-004
+2    R01-005
+3    R01-006
+4    R01-007
+Name: Case ID, dtype: object
+2025-04-27 19:49:03,829 - INFO - RNA-seq数据: 0    R01-023
+1    R01-024
+2    R01-006
+3    R01-153
+4    R01-031
+Name: PatientID, dtype: object
+2025-04-27 19:49:03,829 - INFO - 开始合并数据...
+2025-04-27 19:49:03,831 - INFO - 合并肿瘤特征和临床数据后的形状: (152, 45)
+2025-04-27 19:49:03,833 - INFO - 最终合并后的数据形状: (152, 65)
+2025-04-27 19:49:03,835 - INFO - 目标变量分布:
+2025-04-27 19:49:03,836 - INFO - deadstatus.event
+0    0.710526
+1    0.289474
+Name: proportion, dtype: float64
+2025-04-27 19:49:03,837 - INFO - 实际排除的特征: ['PatientID', 'Case ID', 'deadstatus.event', 'Survival Status', 'Time to Death (days)', 'Date of Death', 'Date of Last Known Alive', 'Recurrence', 'Recurrence Location', 'Date of Recurrence']
+2025-04-27 19:49:03,879 - INFO - 开始标准化数值特征...
+2025-04-27 19:49:03,885 - INFO - 数值特征已标准化
+2025-04-27 19:49:03,889 - INFO - The number of created interaction features: 12
+2025-04-27 19:49:03,889 - INFO - List of interaction characteristics:
+2025-04-27 19:49:03,889 - INFO - ['volume_m_surface_mr', 'volume_m_max_diamt', 'surface_mr_max_diamt', 'Age at Histological Diagnosis_volume_m', 'Age at Histological Diagnosis_surface_mr', 'Age at Histological Diagnosis_max_diamt', 'Gender_Female_volume_m', 'Gender_Female_surface_mr', 'Gender_Female_max_diamt', 'Gender_Male_volume_m', 'Gender_Male_surface_mr', 'Gender_Male_max_diamt']
+2025-04-27 19:49:03,895 - INFO - 交互特征已标准化
+2025-04-27 19:49:03,895 - INFO - 最终用于建模的特征数量: 497
+2025-04-27 19:49:03,896 - INFO - 特征类型统计:
+2025-04-27 19:49:03,897 - INFO - 数值特征: 27
+2025-04-27 19:49:03,897 - INFO - 分类特征: 37
+2025-04-27 19:49:03,897 - INFO - 交互特征: 12
+2025-04-27 19:49:03,897 - INFO - 进行单模态分析...
+2025-04-27 19:49:04,095 - INFO - 影像特征评估结果:
+2025-04-27 19:49:04,095 - INFO - accuracy: 0.5555 ± 0.0377
+2025-04-27 19:49:04,095 - INFO - precision: 0.5337 ± 0.0262
+2025-04-27 19:49:04,095 - INFO - recall: 0.9268 ± 0.0615
+2025-04-27 19:49:04,096 - INFO - f1: 0.6757 ± 0.0207
+2025-04-27 19:49:04,096 - INFO - auc: 0.6064 ± 0.0672
+2025-04-27 19:49:05,988 - INFO - 临床特征评估结果:
+2025-04-27 19:49:05,988 - INFO - accuracy: 0.6944 ± 0.0520
+2025-04-27 19:49:05,989 - INFO - precision: 0.6402 ± 0.0631
+2025-04-27 19:49:05,989 - INFO - recall: 0.9355 ± 0.0684
+2025-04-27 19:49:05,989 - INFO - f1: 0.7550 ± 0.0248
+2025-04-27 19:49:05,989 - INFO - auc: 0.8874 ± 0.0163
+2025-04-27 19:49:05,990 - INFO - 单模态分析结果: {'imaging': {'accuracy': {'mean': np.float64(0.5554968287526428), 'std': np.float64(0.03767427623637511)}, 'precision': {'mean': np.float64(0.5336501072119187), 'std': np.float64(0.026233976961990813)}, 'recall': {'mean': np.float64(0.9268398268398268), 'std': np.float64(0.061471861471861455)}, 'f1': {'mean': np.float64(0.6757184129429892), 'std': np.float64(0.020707246797748217)}, 'auc': {'mean': np.float64(0.6064049586776858), 'std': np.float64(0.06722121368470169)}}, 'clinical': {'accuracy': {'mean': np.float64(0.6943974630021141), 'std': np.float64(0.05198911618940342)}, 'precision': {'mean': np.float64(0.6401799954431533), 'std': np.float64(0.06312108813268415)}, 'recall': {'mean': np.float64(0.9354978354978355), 'std': np.float64(0.06839826839826839)}, 'f1': {'mean': np.float64(0.7550274659690576), 'std': np.float64(0.024828090019577156)}, 'auc': {'mean': np.float64(0.8873868555686737), 'std': np.float64(0.016318586324855368)}}}
+2025-04-27 19:49:05,990 - INFO - 进行多模态融合分析...
+2025-04-27 19:49:07,631 - INFO - 多模态融合评估结果:
+2025-04-27 19:49:07,631 - INFO - accuracy: 0.7036 ± 0.0480
+2025-04-27 19:49:07,631 - INFO - precision: 0.6447 ± 0.0541
+2025-04-27 19:49:07,631 - INFO - recall: 0.9355 ± 0.0469
+2025-04-27 19:49:07,631 - INFO - f1: 0.7604 ± 0.0275
+2025-04-27 19:49:07,631 - INFO - auc: 0.8634 ± 0.0412
+2025-04-27 19:49:07,635 - INFO - 多模态融合结果: {'accuracy': {'mean': np.float64(0.7035940803382663), 'std': np.float64(0.047994802955307274)}, 'precision': {'mean': np.float64(0.64474800482865), 'std': np.float64(0.05410203867683451)}, 'recall': {'mean': np.float64(0.9354978354978355), 'std': np.float64(0.04689332870362644)}, 'f1': {'mean': np.float64(0.760425876805187), 'std': np.float64(0.027475427378855805)}, 'auc': {'mean': np.float64(0.8634002361275088), 'std': np.float64(0.04123891060222837)}}
+2025-04-27 19:49:07,635 - INFO - 进行特征重要性分析...
+2025-04-27 19:49:08,398 - INFO - 特征重要性分析完成
+2025-04-27 19:49:08,398 - INFO - Top 10重要特征:
+2025-04-27 19:49:08,398 - INFO -                                             feature  importance
+115                             Ethnicity_Caucasian    0.065346
+160                                          %GG_0%    0.053208
+181  Histology _NSCLC NOS (not otherwise specified)    0.046329
+193                         Pathological N stage_N2    0.040745
+14                                           ZNF174    0.036540
+195                         Pathological M stage_M0    0.034013
+133                                   Pack Years_30    0.033243
+138                                   Pack Years_40    0.030534
+225                          Adjuvant Treatment_Yes    0.028830
+494                            Gender_Male_volume_m    0.024688
+2025-04-27 19:49:08,407 - INFO - 进行模型解释性分析...
+2025-04-27 19:49:11,039 - INFO - 模型解释性分析完成
+2025-04-27 19:49:11,039 - INFO - Top 10重要特征（基于SHAP值）:
+2025-04-27 19:49:11,039 - INFO -                      feature  shap_importance
+160                   %GG_0%         0.937360
+133            Pack Years_30         0.568962
+18                     NOP14         0.507921
+10                      IRF4         0.446090
+193  Pathological N stage_N2         0.315711
+115      Ethnicity_Caucasian         0.304433
+14                    ZNF174         0.301747
+24                      HSF4         0.258372
+17                     KLHL2         0.236527
+15                      RYBP         0.226194
+2025-04-27 19:49:11,052 - INFO - 分析完成，结果已保存到2_data/analysis_results.csv
+2025-04-27 19:49:27,468 - INFO - 开始加载和预处理数据...
+2025-04-27 19:49:27,469 - INFO - 开始加载数据...
+2025-04-27 19:49:27,480 - INFO - 原始数据信息:
+2025-04-27 19:49:27,481 - INFO - 肿瘤特征数据形状: (117, 5)
+2025-04-27 19:49:27,481 - INFO - 临床数据形状: (165, 40)
+2025-04-27 19:49:27,481 - INFO - RNA-seq数据形状: (130, 21)
+2025-04-27 19:49:27,483 - INFO - 处理后的PatientID示例:
+2025-04-27 19:49:27,484 - INFO - 肿瘤特征: 0    R01-023
+1    R01-038
+2    R01-099
+3    R01-128
+4    R01-098
+Name: PatientID, dtype: object
+2025-04-27 19:49:27,484 - INFO - 临床数据: 0    R01-003
+1    R01-004
+2    R01-005
+3    R01-006
+4    R01-007
+Name: Case ID, dtype: object
+2025-04-27 19:49:27,484 - INFO - RNA-seq数据: 0    R01-023
+1    R01-024
+2    R01-006
+3    R01-153
+4    R01-031
+Name: PatientID, dtype: object
+2025-04-27 19:49:27,485 - INFO - 开始合并数据...
+2025-04-27 19:49:27,487 - INFO - 合并肿瘤特征和临床数据后的形状: (152, 45)
+2025-04-27 19:49:27,489 - INFO - 最终合并后的数据形状: (152, 65)
+2025-04-27 19:49:27,491 - INFO - 目标变量分布:
+2025-04-27 19:49:27,493 - INFO - deadstatus.event
+0    0.710526
+1    0.289474
+Name: proportion, dtype: float64
+2025-04-27 19:49:27,494 - INFO - 实际排除的特征: ['PatientID', 'Case ID', 'deadstatus.event', 'Survival Status', 'Time to Death (days)', 'Date of Death', 'Date of Last Known Alive', 'Recurrence', 'Recurrence Location', 'Date of Recurrence']
+2025-04-27 19:49:27,532 - INFO - 开始标准化数值特征...
+2025-04-27 19:49:27,540 - INFO - 数值特征已标准化
+2025-04-27 19:49:27,545 - INFO - 创建的交互特征数量: 12
+2025-04-27 19:49:27,546 - INFO - 交互特征列表:
+2025-04-27 19:49:27,546 - INFO - ['volume_m_surface_mr', 'volume_m_max_diamt', 'surface_mr_max_diamt', 'Age at Histological Diagnosis_volume_m', 'Age at Histological Diagnosis_surface_mr', 'Age at Histological Diagnosis_max_diamt', 'Gender_Female_volume_m', 'Gender_Female_surface_mr', 'Gender_Female_max_diamt', 'Gender_Male_volume_m', 'Gender_Male_surface_mr', 'Gender_Male_max_diamt']
+2025-04-27 19:49:27,551 - INFO - 交互特征已标准化
+2025-04-27 19:49:27,551 - INFO - 最终用于建模的特征数量: 497
+2025-04-27 19:49:27,551 - INFO - 特征类型统计:
+2025-04-27 19:49:27,552 - INFO - 数值特征: 27
+2025-04-27 19:49:27,552 - INFO - 分类特征: 37
+2025-04-27 19:49:27,553 - INFO - 交互特征: 12
+2025-04-27 19:49:27,553 - INFO - 进行单模态分析...
+2025-04-27 19:49:27,730 - INFO - 影像特征评估结果:
+2025-04-27 19:49:27,730 - INFO - accuracy: 0.5555 ± 0.0377
+2025-04-27 19:49:27,730 - INFO - precision: 0.5337 ± 0.0262
+2025-04-27 19:49:27,730 - INFO - recall: 0.9268 ± 0.0615
+2025-04-27 19:49:27,731 - INFO - f1: 0.6757 ± 0.0207
+2025-04-27 19:49:27,731 - INFO - auc: 0.6064 ± 0.0672
+2025-04-27 19:49:29,659 - INFO - 临床特征评估结果:
+2025-04-27 19:49:29,660 - INFO - accuracy: 0.6944 ± 0.0520
+2025-04-27 19:49:29,660 - INFO - precision: 0.6402 ± 0.0631
+2025-04-27 19:49:29,660 - INFO - recall: 0.9355 ± 0.0684
+2025-04-27 19:49:29,660 - INFO - f1: 0.7550 ± 0.0248
+2025-04-27 19:49:29,660 - INFO - auc: 0.8874 ± 0.0163
+2025-04-27 19:49:29,660 - INFO - 单模态分析结果: {'imaging': {'accuracy': {'mean': np.float64(0.5554968287526428), 'std': np.float64(0.03767427623637511)}, 'precision': {'mean': np.float64(0.5336501072119187), 'std': np.float64(0.026233976961990813)}, 'recall': {'mean': np.float64(0.9268398268398268), 'std': np.float64(0.061471861471861455)}, 'f1': {'mean': np.float64(0.6757184129429892), 'std': np.float64(0.020707246797748217)}, 'auc': {'mean': np.float64(0.6064049586776858), 'std': np.float64(0.06722121368470169)}}, 'clinical': {'accuracy': {'mean': np.float64(0.6943974630021141), 'std': np.float64(0.05198911618940342)}, 'precision': {'mean': np.float64(0.6401799954431533), 'std': np.float64(0.06312108813268415)}, 'recall': {'mean': np.float64(0.9354978354978355), 'std': np.float64(0.06839826839826839)}, 'f1': {'mean': np.float64(0.7550274659690576), 'std': np.float64(0.024828090019577156)}, 'auc': {'mean': np.float64(0.8873868555686737), 'std': np.float64(0.016318586324855368)}}}
+2025-04-27 19:49:29,661 - INFO - 进行多模态融合分析...
+2025-04-27 19:49:31,358 - INFO - 多模态融合评估结果:
+2025-04-27 19:49:31,358 - INFO - accuracy: 0.7036 ± 0.0480
+2025-04-27 19:49:31,358 - INFO - precision: 0.6447 ± 0.0541
+2025-04-27 19:49:31,358 - INFO - recall: 0.9355 ± 0.0469
+2025-04-27 19:49:31,359 - INFO - f1: 0.7604 ± 0.0275
+2025-04-27 19:49:31,359 - INFO - auc: 0.8634 ± 0.0412
+2025-04-27 19:49:31,362 - INFO - 多模态融合结果: {'accuracy': {'mean': np.float64(0.7035940803382663), 'std': np.float64(0.047994802955307274)}, 'precision': {'mean': np.float64(0.64474800482865), 'std': np.float64(0.05410203867683451)}, 'recall': {'mean': np.float64(0.9354978354978355), 'std': np.float64(0.04689332870362644)}, 'f1': {'mean': np.float64(0.760425876805187), 'std': np.float64(0.027475427378855805)}, 'auc': {'mean': np.float64(0.8634002361275088), 'std': np.float64(0.04123891060222837)}}
+2025-04-27 19:49:31,362 - INFO - 进行特征重要性分析...
+2025-04-27 19:49:32,112 - INFO - 特征重要性分析完成
+2025-04-27 19:49:32,113 - INFO - Top 10重要特征:
+2025-04-27 19:49:32,114 - INFO -                                             feature  importance
+115                             Ethnicity_Caucasian    0.065346
+160                                          %GG_0%    0.053208
+181  Histology _NSCLC NOS (not otherwise specified)    0.046329
+193                         Pathological N stage_N2    0.040745
+14                                           ZNF174    0.036540
+195                         Pathological M stage_M0    0.034013
+133                                   Pack Years_30    0.033243
+138                                   Pack Years_40    0.030534
+225                          Adjuvant Treatment_Yes    0.028830
+494                            Gender_Male_volume_m    0.024688
+2025-04-27 19:49:32,124 - INFO - 进行模型解释性分析...
+2025-04-27 19:49:34,552 - INFO - 模型解释性分析完成
+2025-04-27 19:49:34,553 - INFO - Top 10重要特征（基于SHAP值）:
+2025-04-27 19:49:34,553 - INFO -                      feature  shap_importance
+160                   %GG_0%         0.937360
+133            Pack Years_30         0.568962
+18                     NOP14         0.507921
+10                      IRF4         0.446090
+193  Pathological N stage_N2         0.315711
+115      Ethnicity_Caucasian         0.304433
+14                    ZNF174         0.301747
+24                      HSF4         0.258372
+17                     KLHL2         0.236527
+15                      RYBP         0.226194
+2025-04-27 19:49:34,565 - INFO - 分析完成，结果已保存到2_data/analysis_results.csv
+2025-04-27 19:50:57,933 - INFO - 开始加载和预处理数据...
+2025-04-27 19:50:57,961 - INFO - 开始合并数据...
+2025-04-27 19:50:57,966 - INFO - 合并肿瘤特征和临床数据后的形状: (152, 45)
+2025-04-27 19:50:57,969 - INFO - 最终合并后的数据形状: (152, 65)
+2025-04-27 19:50:57,973 - INFO - 目标变量分布:
+2025-04-27 19:50:57,976 - INFO - deadstatus.event
+0    0.710526
+1    0.289474
+Name: proportion, dtype: float64
+2025-04-27 19:50:57,977 - INFO - 实际排除的特征: ['PatientID', 'Case ID', 'deadstatus.event', 'Survival Status', 'Time to Death (days)', 'Date of Death', 'Date of Last Known Alive', 'Recurrence', 'Recurrence Location', 'Date of Recurrence']
+2025-04-27 19:50:58,024 - INFO - 开始标准化数值特征...
+2025-04-27 19:50:58,030 - INFO - 数值特征已标准化
+2025-04-27 19:50:58,035 - INFO - 创建的交互特征数量: 12
+2025-04-27 19:50:58,035 - INFO - 交互特征列表:
+2025-04-27 19:50:58,035 - INFO - ['volume_m_surface_mr', 'volume_m_max_diamt', 'surface_mr_max_diamt', 'Age at Histological Diagnosis_volume_m', 'Age at Histological Diagnosis_surface_mr', 'Age at Histological Diagnosis_max_diamt', 'Gender_Female_volume_m', 'Gender_Female_surface_mr', 'Gender_Female_max_diamt', 'Gender_Male_volume_m', 'Gender_Male_surface_mr', 'Gender_Male_max_diamt']
+2025-04-27 19:50:58,041 - INFO - 交互特征已标准化
+2025-04-27 19:50:58,042 - INFO - 最终用于建模的特征数量: 497
+2025-04-27 19:50:58,042 - INFO - 特征类型统计:
+2025-04-27 19:50:58,042 - INFO - 数值特征: 27
+2025-04-27 19:50:58,043 - INFO - 分类特征: 37
+2025-04-27 19:50:58,043 - INFO - 交互特征: 12
+2025-04-27 19:50:58,043 - INFO - 进行单模态分析...
+2025-04-27 19:50:58,238 - INFO - 影像特征评估结果:
+2025-04-27 19:50:58,238 - INFO - accuracy: 0.5555 ± 0.0377
+2025-04-27 19:50:58,238 - INFO - precision: 0.5337 ± 0.0262
+2025-04-27 19:50:58,239 - INFO - recall: 0.9268 ± 0.0615
+2025-04-27 19:50:58,239 - INFO - f1: 0.6757 ± 0.0207
+2025-04-27 19:50:58,239 - INFO - auc: 0.6064 ± 0.0672
+2025-04-27 19:51:00,148 - INFO - 临床特征评估结果:
+2025-04-27 19:51:00,149 - INFO - accuracy: 0.6944 ± 0.0520
+2025-04-27 19:51:00,149 - INFO - precision: 0.6402 ± 0.0631
+2025-04-27 19:51:00,149 - INFO - recall: 0.9355 ± 0.0684
+2025-04-27 19:51:00,149 - INFO - f1: 0.7550 ± 0.0248
+2025-04-27 19:51:00,149 - INFO - auc: 0.8874 ± 0.0163
+2025-04-27 19:51:00,150 - INFO - 单模态分析结果: {'imaging': {'accuracy': {'mean': np.float64(0.5554968287526428), 'std': np.float64(0.03767427623637511)}, 'precision': {'mean': np.float64(0.5336501072119187), 'std': np.float64(0.026233976961990813)}, 'recall': {'mean': np.float64(0.9268398268398268), 'std': np.float64(0.061471861471861455)}, 'f1': {'mean': np.float64(0.6757184129429892), 'std': np.float64(0.020707246797748217)}, 'auc': {'mean': np.float64(0.6064049586776858), 'std': np.float64(0.06722121368470169)}}, 'clinical': {'accuracy': {'mean': np.float64(0.6943974630021141), 'std': np.float64(0.05198911618940342)}, 'precision': {'mean': np.float64(0.6401799954431533), 'std': np.float64(0.06312108813268415)}, 'recall': {'mean': np.float64(0.9354978354978355), 'std': np.float64(0.06839826839826839)}, 'f1': {'mean': np.float64(0.7550274659690576), 'std': np.float64(0.024828090019577156)}, 'auc': {'mean': np.float64(0.8873868555686737), 'std': np.float64(0.016318586324855368)}}}
+2025-04-27 19:51:00,150 - INFO - 进行多模态融合分析...
+2025-04-27 19:51:01,834 - INFO - 多模态融合评估结果:
+2025-04-27 19:51:01,834 - INFO - accuracy: 0.7036 ± 0.0480
+2025-04-27 19:51:01,834 - INFO - precision: 0.6447 ± 0.0541
+2025-04-27 19:51:01,834 - INFO - recall: 0.9355 ± 0.0469
+2025-04-27 19:51:01,835 - INFO - f1: 0.7604 ± 0.0275
+2025-04-27 19:51:01,835 - INFO - auc: 0.8634 ± 0.0412
+2025-04-27 19:51:01,839 - INFO - 多模态融合结果: {'accuracy': {'mean': np.float64(0.7035940803382663), 'std': np.float64(0.047994802955307274)}, 'precision': {'mean': np.float64(0.64474800482865), 'std': np.float64(0.05410203867683451)}, 'recall': {'mean': np.float64(0.9354978354978355), 'std': np.float64(0.04689332870362644)}, 'f1': {'mean': np.float64(0.760425876805187), 'std': np.float64(0.027475427378855805)}, 'auc': {'mean': np.float64(0.8634002361275088), 'std': np.float64(0.04123891060222837)}}
+2025-04-27 19:51:01,839 - INFO - 进行特征重要性分析...
+2025-04-27 19:51:02,663 - INFO - 特征重要性分析完成
+2025-04-27 19:51:02,663 - INFO - Top 10重要特征:
+2025-04-27 19:51:02,663 - INFO -                                             feature  importance
+115                             Ethnicity_Caucasian    0.065346
+160                                          %GG_0%    0.053208
+181  Histology _NSCLC NOS (not otherwise specified)    0.046329
+193                         Pathological N stage_N2    0.040745
+14                                           ZNF174    0.036540
+195                         Pathological M stage_M0    0.034013
+133                                   Pack Years_30    0.033243
+138                                   Pack Years_40    0.030534
+225                          Adjuvant Treatment_Yes    0.028830
+494                            Gender_Male_volume_m    0.024688
+2025-04-27 19:51:02,673 - INFO - 进行模型解释性分析...
+2025-04-27 19:51:05,105 - INFO - 模型解释性分析完成
+2025-04-27 19:51:05,105 - INFO - Top 10重要特征（基于SHAP值）:
+2025-04-27 19:51:05,106 - INFO -                      feature  shap_importance
+160                   %GG_0%         0.937360
+133            Pack Years_30         0.568962
+18                     NOP14         0.507921
+10                      IRF4         0.446090
+193  Pathological N stage_N2         0.315711
+115      Ethnicity_Caucasian         0.304433
+14                    ZNF174         0.301747
+24                      HSF4         0.258372
+17                     KLHL2         0.236527
+15                      RYBP         0.226194
+2025-04-27 19:51:05,119 - INFO - 分析完成，结果已保存到2_data/analysis_results.csv
+2025-04-27 19:56:17,445 - INFO - 开始加载和预处理数据...
+2025-04-27 19:56:17,460 - INFO - 目标变量分布:
+2025-04-27 19:56:17,462 - INFO - deadstatus.event
+0    0.710526
+1    0.289474
+Name: proportion, dtype: float64
+2025-04-27 19:56:17,463 - INFO - 实际排除的特征: ['PatientID', 'Case ID', 'deadstatus.event', 'Survival Status', 'Time to Death (days)', 'Date of Death', 'Date of Last Known Alive', 'Recurrence', 'Recurrence Location', 'Date of Recurrence']
+2025-04-27 19:56:17,509 - INFO - 开始标准化数值特征...
+2025-04-27 19:56:17,515 - INFO - 数值特征已标准化
+2025-04-27 19:56:17,521 - INFO - 创建的交互特征数量: 12
+2025-04-27 19:56:17,522 - INFO - 交互特征列表:
+2025-04-27 19:56:17,522 - INFO - ['volume_m_surface_mr', 'volume_m_max_diamt', 'surface_mr_max_diamt', 'Age at Histological Diagnosis_volume_m', 'Age at Histological Diagnosis_surface_mr', 'Age at Histological Diagnosis_max_diamt', 'Gender_Female_volume_m', 'Gender_Female_surface_mr', 'Gender_Female_max_diamt', 'Gender_Male_volume_m', 'Gender_Male_surface_mr', 'Gender_Male_max_diamt']
+2025-04-27 19:56:17,527 - INFO - 交互特征已标准化
+2025-04-27 19:56:17,531 - INFO - 最终用于建模的特征数量: 497
+2025-04-27 19:56:17,531 - INFO - 特征类型统计:
+2025-04-27 19:56:17,532 - INFO - 数值特征: 27
+2025-04-27 19:56:17,532 - INFO - 分类特征: 37
+2025-04-27 19:56:17,532 - INFO - 交互特征: 12
+2025-04-27 19:56:17,532 - INFO - 进行单模态分析...
+2025-04-27 19:56:17,697 - INFO - 影像特征评估结果:
+2025-04-27 19:56:17,697 - INFO - accuracy: 0.5555 ± 0.0377
+2025-04-27 19:56:17,697 - INFO - precision: 0.5337 ± 0.0262
+2025-04-27 19:56:17,697 - INFO - recall: 0.9268 ± 0.0615
+2025-04-27 19:56:17,697 - INFO - f1: 0.6757 ± 0.0207
+2025-04-27 19:56:17,697 - INFO - auc: 0.6064 ± 0.0672
+2025-04-27 19:56:19,621 - INFO - 临床特征评估结果:
+2025-04-27 19:56:19,622 - INFO - accuracy: 0.6944 ± 0.0520
+2025-04-27 19:56:19,622 - INFO - precision: 0.6402 ± 0.0631
+2025-04-27 19:56:19,622 - INFO - recall: 0.9355 ± 0.0684
+2025-04-27 19:56:19,622 - INFO - f1: 0.7550 ± 0.0248
+2025-04-27 19:56:19,622 - INFO - auc: 0.8874 ± 0.0163
+2025-04-27 19:56:19,623 - INFO - 单模态分析结果: {'imaging': {'accuracy': {'mean': np.float64(0.5554968287526428), 'std': np.float64(0.03767427623637511)}, 'precision': {'mean': np.float64(0.5336501072119187), 'std': np.float64(0.026233976961990813)}, 'recall': {'mean': np.float64(0.9268398268398268), 'std': np.float64(0.061471861471861455)}, 'f1': {'mean': np.float64(0.6757184129429892), 'std': np.float64(0.020707246797748217)}, 'auc': {'mean': np.float64(0.6064049586776858), 'std': np.float64(0.06722121368470169)}}, 'clinical': {'accuracy': {'mean': np.float64(0.6943974630021141), 'std': np.float64(0.05198911618940342)}, 'precision': {'mean': np.float64(0.6401799954431533), 'std': np.float64(0.06312108813268415)}, 'recall': {'mean': np.float64(0.9354978354978355), 'std': np.float64(0.06839826839826839)}, 'f1': {'mean': np.float64(0.7550274659690576), 'std': np.float64(0.024828090019577156)}, 'auc': {'mean': np.float64(0.8873868555686737), 'std': np.float64(0.016318586324855368)}}}
+2025-04-27 19:56:19,623 - INFO - 进行多模态融合分析...
+2025-04-27 19:56:21,245 - INFO - 多模态融合评估结果:
+2025-04-27 19:56:21,245 - INFO - accuracy: 0.7036 ± 0.0480
+2025-04-27 19:56:21,245 - INFO - precision: 0.6447 ± 0.0541
+2025-04-27 19:56:21,245 - INFO - recall: 0.9355 ± 0.0469
+2025-04-27 19:56:21,245 - INFO - f1: 0.7604 ± 0.0275
+2025-04-27 19:56:21,245 - INFO - auc: 0.8634 ± 0.0412
+2025-04-27 19:56:21,249 - INFO - 多模态融合结果: {'accuracy': {'mean': np.float64(0.7035940803382663), 'std': np.float64(0.047994802955307274)}, 'precision': {'mean': np.float64(0.64474800482865), 'std': np.float64(0.05410203867683451)}, 'recall': {'mean': np.float64(0.9354978354978355), 'std': np.float64(0.04689332870362644)}, 'f1': {'mean': np.float64(0.760425876805187), 'std': np.float64(0.027475427378855805)}, 'auc': {'mean': np.float64(0.8634002361275088), 'std': np.float64(0.04123891060222837)}}
+2025-04-27 19:56:21,249 - INFO - 进行特征重要性分析...
+2025-04-27 19:56:22,055 - INFO - 特征重要性分析完成
+2025-04-27 19:56:22,055 - INFO - Top 10重要特征:
+2025-04-27 19:56:22,056 - INFO -                                             feature  importance
+115                             Ethnicity_Caucasian    0.065346
+160                                          %GG_0%    0.053208
+181  Histology _NSCLC NOS (not otherwise specified)    0.046329
+193                         Pathological N stage_N2    0.040745
+14                                           ZNF174    0.036540
+195                         Pathological M stage_M0    0.034013
+133                                   Pack Years_30    0.033243
+138                                   Pack Years_40    0.030534
+225                          Adjuvant Treatment_Yes    0.028830
+494                            Gender_Male_volume_m    0.024688
+2025-04-27 19:56:22,063 - INFO - 进行模型解释性分析...
+2025-04-27 19:56:24,493 - INFO - 模型解释性分析完成
+2025-04-27 19:56:24,493 - INFO - Top 10重要特征（基于SHAP值）:
+2025-04-27 19:56:24,493 - INFO -                      feature  shap_importance
+160                   %GG_0%         0.937360
+133            Pack Years_30         0.568962
+18                     NOP14         0.507921
+10                      IRF4         0.446090
+193  Pathological N stage_N2         0.315711
+115      Ethnicity_Caucasian         0.304433
+14                    ZNF174         0.301747
+24                      HSF4         0.258372
+17                     KLHL2         0.236527
+15                      RYBP         0.226194
+2025-04-27 19:56:24,506 - INFO - 分析完成，结果已保存到2_data/analysis_results.csv
+2025-04-27 20:00:48,959 - INFO - Starting to load and preprocess data...
+2025-04-27 20:00:48,973 - INFO - 目标变量分布:
+2025-04-27 20:00:48,974 - INFO - deadstatus.event
+0    0.710526
+1    0.289474
+Name: proportion, dtype: float64
+2025-04-27 20:00:48,976 - INFO - 实际排除的特征: ['PatientID', 'Case ID', 'deadstatus.event', 'Survival Status', 'Time to Death (days)', 'Date of Death', 'Date of Last Known Alive', 'Recurrence', 'Recurrence Location', 'Date of Recurrence']
+2025-04-27 20:00:49,017 - INFO - 开始标准化数值特征...
+2025-04-27 20:00:49,023 - INFO - 数值特征已标准化
+2025-04-27 20:00:49,028 - INFO - 创建的交互特征数量: 12
+2025-04-27 20:00:49,029 - INFO - 交互特征列表:
+2025-04-27 20:00:49,029 - INFO - ['volume_m_surface_mr', 'volume_m_max_diamt', 'surface_mr_max_diamt', 'Age at Histological Diagnosis_volume_m', 'Age at Histological Diagnosis_surface_mr', 'Age at Histological Diagnosis_max_diamt', 'Gender_Female_volume_m', 'Gender_Female_surface_mr', 'Gender_Female_max_diamt', 'Gender_Male_volume_m', 'Gender_Male_surface_mr', 'Gender_Male_max_diamt']
+2025-04-27 20:00:49,033 - INFO - 交互特征已标准化
+2025-04-27 20:00:49,035 - INFO - 最终用于建模的特征数量: 497
+2025-04-27 20:00:49,035 - INFO - 特征类型统计:
+2025-04-27 20:00:49,035 - INFO - 数值特征: 27
+2025-04-27 20:00:49,035 - INFO - 分类特征: 37
+2025-04-27 20:00:49,036 - INFO - 交互特征: 12
+2025-04-27 20:00:49,036 - INFO - Performing single modality analysis...
+2025-04-27 20:00:49,202 - INFO - 影像特征评估结果:
+2025-04-27 20:00:49,202 - INFO - accuracy: 0.5555 ± 0.0377
+2025-04-27 20:00:49,202 - INFO - precision: 0.5337 ± 0.0262
+2025-04-27 20:00:49,203 - INFO - recall: 0.9268 ± 0.0615
+2025-04-27 20:00:49,203 - INFO - f1: 0.6757 ± 0.0207
+2025-04-27 20:00:49,203 - INFO - auc: 0.6064 ± 0.0672
+2025-04-27 20:00:51,032 - INFO - 临床特征评估结果:
+2025-04-27 20:00:51,032 - INFO - accuracy: 0.6944 ± 0.0520
+2025-04-27 20:00:51,033 - INFO - precision: 0.6402 ± 0.0631
+2025-04-27 20:00:51,033 - INFO - recall: 0.9355 ± 0.0684
+2025-04-27 20:00:51,033 - INFO - f1: 0.7550 ± 0.0248
+2025-04-27 20:00:51,033 - INFO - auc: 0.8874 ± 0.0163
+2025-04-27 20:00:51,033 - INFO - Single modality analysis results: {'imaging': {'accuracy': {'mean': np.float64(0.5554968287526428), 'std': np.float64(0.03767427623637511)}, 'precision': {'mean': np.float64(0.5336501072119187), 'std': np.float64(0.026233976961990813)}, 'recall': {'mean': np.float64(0.9268398268398268), 'std': np.float64(0.061471861471861455)}, 'f1': {'mean': np.float64(0.6757184129429892), 'std': np.float64(0.020707246797748217)}, 'auc': {'mean': np.float64(0.6064049586776858), 'std': np.float64(0.06722121368470169)}}, 'clinical': {'accuracy': {'mean': np.float64(0.6943974630021141), 'std': np.float64(0.05198911618940342)}, 'precision': {'mean': np.float64(0.6401799954431533), 'std': np.float64(0.06312108813268415)}, 'recall': {'mean': np.float64(0.9354978354978355), 'std': np.float64(0.06839826839826839)}, 'f1': {'mean': np.float64(0.7550274659690576), 'std': np.float64(0.024828090019577156)}, 'auc': {'mean': np.float64(0.8873868555686737), 'std': np.float64(0.016318586324855368)}}}
+2025-04-27 20:00:51,033 - INFO - Performing multimodal fusion analysis...
+2025-04-27 20:00:52,663 - INFO - 多模态融合评估结果:
+2025-04-27 20:00:52,663 - INFO - accuracy: 0.7036 ± 0.0480
+2025-04-27 20:00:52,664 - INFO - precision: 0.6447 ± 0.0541
+2025-04-27 20:00:52,664 - INFO - recall: 0.9355 ± 0.0469
+2025-04-27 20:00:52,664 - INFO - f1: 0.7604 ± 0.0275
+2025-04-27 20:00:52,664 - INFO - auc: 0.8634 ± 0.0412
+2025-04-27 20:00:52,667 - INFO - Multimodal fusion analysis results: {'accuracy': {'mean': np.float64(0.7035940803382663), 'std': np.float64(0.047994802955307274)}, 'precision': {'mean': np.float64(0.64474800482865), 'std': np.float64(0.05410203867683451)}, 'recall': {'mean': np.float64(0.9354978354978355), 'std': np.float64(0.04689332870362644)}, 'f1': {'mean': np.float64(0.760425876805187), 'std': np.float64(0.027475427378855805)}, 'auc': {'mean': np.float64(0.8634002361275088), 'std': np.float64(0.04123891060222837)}}
+2025-04-27 20:00:52,667 - INFO - Performing feature importance analysis...
+2025-04-27 20:00:53,405 - INFO - 特征重要性分析完成
+2025-04-27 20:00:53,405 - INFO - Top 10重要特征:
+2025-04-27 20:00:53,405 - INFO -                                             feature  importance
+115                             Ethnicity_Caucasian    0.065346
+160                                          %GG_0%    0.053208
+181  Histology _NSCLC NOS (not otherwise specified)    0.046329
+193                         Pathological N stage_N2    0.040745
+14                                           ZNF174    0.036540
+195                         Pathological M stage_M0    0.034013
+133                                   Pack Years_30    0.033243
+138                                   Pack Years_40    0.030534
+225                          Adjuvant Treatment_Yes    0.028830
+494                            Gender_Male_volume_m    0.024688
+2025-04-27 20:00:53,415 - INFO - Performing model interpretability analysis...
+2025-04-27 20:00:55,767 - INFO - 模型解释性分析完成
+2025-04-27 20:00:55,768 - INFO - Top 10重要特征（基于SHAP值）:
+2025-04-27 20:00:55,768 - INFO -                      feature  shap_importance
+160                   %GG_0%         0.937360
+133            Pack Years_30         0.568962
+18                     NOP14         0.507921
+10                      IRF4         0.446090
+193  Pathological N stage_N2         0.315711
+115      Ethnicity_Caucasian         0.304433
+14                    ZNF174         0.301747
+24                      HSF4         0.258372
+17                     KLHL2         0.236527
+15                      RYBP         0.226194
+2025-04-27 20:00:55,781 - INFO - Analysis completed. Results saved to 2_data/analysis_results.csv
+2025-04-27 20:12:06,388 - INFO - Starting to load and preprocess data...
+2025-04-27 20:12:06,403 - INFO - 目标变量分布:
+2025-04-27 20:12:06,404 - INFO - deadstatus.event
+0    0.710526
+1    0.289474
+Name: proportion, dtype: float64
+2025-04-27 20:12:06,406 - INFO - The actual excluded features: ['PatientID', 'Case ID', 'deadstatus.event', 'Survival Status', 'Time to Death (days)', 'Date of Death', 'Date of Last Known Alive', 'Recurrence', 'Recurrence Location', 'Date of Recurrence']
+2025-04-27 20:12:06,451 - INFO - Starting to standardize numeric features...
+2025-04-27 20:12:06,456 - INFO - Numeric features standardized.
+2025-04-27 20:12:06,462 - INFO - The number of created interaction features: 12
+2025-04-27 20:12:06,462 - INFO - List of interaction characteristics:
+2025-04-27 20:12:06,463 - INFO - ['volume_m_surface_mr', 'volume_m_max_diamt', 'surface_mr_max_diamt', 'Age at Histological Diagnosis_volume_m', 'Age at Histological Diagnosis_surface_mr', 'Age at Histological Diagnosis_max_diamt', 'Gender_Female_volume_m', 'Gender_Female_surface_mr', 'Gender_Female_max_diamt', 'Gender_Male_volume_m', 'Gender_Male_surface_mr', 'Gender_Male_max_diamt']
+2025-04-27 20:12:06,467 - INFO - Interaction features standardized.
+2025-04-27 20:12:06,467 - INFO - Total number of features used for modeling:497
+2025-04-27 20:12:06,467 - INFO - Feature type statistics:
+2025-04-27 20:12:06,468 - INFO - Numeric features: 27
+2025-04-27 20:12:06,468 - INFO - Categorical features:37
+2025-04-27 20:12:06,468 - INFO - Interaction features: 12
+2025-04-27 20:12:06,468 - INFO - Performing single modality analysis...
+2025-04-27 20:12:06,701 - INFO - Imaging features evaluation results:
+2025-04-27 20:12:06,702 - INFO - accuracy: 0.5555 ± 0.0377
+2025-04-27 20:12:06,702 - INFO - precision: 0.5337 ± 0.0262
+2025-04-27 20:12:06,702 - INFO - recall: 0.9268 ± 0.0615
+2025-04-27 20:12:06,702 - INFO - f1: 0.6757 ± 0.0207
+2025-04-27 20:12:06,702 - INFO - auc: 0.6064 ± 0.0672
+2025-04-27 20:12:08,624 - INFO - Clinical features evaluation results:
+2025-04-27 20:12:08,624 - INFO - accuracy: 0.6944 ± 0.0520
+2025-04-27 20:12:08,625 - INFO - precision: 0.6402 ± 0.0631
+2025-04-27 20:12:08,625 - INFO - recall: 0.9355 ± 0.0684
+2025-04-27 20:12:08,625 - INFO - f1: 0.7550 ± 0.0248
+2025-04-27 20:12:08,625 - INFO - auc: 0.8874 ± 0.0163
+2025-04-27 20:12:08,626 - INFO - Single modality analysis results: {'imaging': {'accuracy': {'mean': np.float64(0.5554968287526428), 'std': np.float64(0.03767427623637511)}, 'precision': {'mean': np.float64(0.5336501072119187), 'std': np.float64(0.026233976961990813)}, 'recall': {'mean': np.float64(0.9268398268398268), 'std': np.float64(0.061471861471861455)}, 'f1': {'mean': np.float64(0.6757184129429892), 'std': np.float64(0.020707246797748217)}, 'auc': {'mean': np.float64(0.6064049586776858), 'std': np.float64(0.06722121368470169)}}, 'clinical': {'accuracy': {'mean': np.float64(0.6943974630021141), 'std': np.float64(0.05198911618940342)}, 'precision': {'mean': np.float64(0.6401799954431533), 'std': np.float64(0.06312108813268415)}, 'recall': {'mean': np.float64(0.9354978354978355), 'std': np.float64(0.06839826839826839)}, 'f1': {'mean': np.float64(0.7550274659690576), 'std': np.float64(0.024828090019577156)}, 'auc': {'mean': np.float64(0.8873868555686737), 'std': np.float64(0.016318586324855368)}}}
+2025-04-27 20:12:08,626 - INFO - Performing multimodal fusion analysis...
+2025-04-27 20:12:10,195 - INFO - Multimodal fusion evaluation results:
+2025-04-27 20:12:10,195 - INFO - accuracy: 0.7036 ± 0.0480
+2025-04-27 20:12:10,195 - INFO - precision: 0.6447 ± 0.0541
+2025-04-27 20:12:10,195 - INFO - recall: 0.9355 ± 0.0469
+2025-04-27 20:12:10,196 - INFO - f1: 0.7604 ± 0.0275
+2025-04-27 20:12:10,196 - INFO - auc: 0.8634 ± 0.0412
+2025-04-27 20:12:10,199 - INFO - Multimodal fusion analysis results: {'accuracy': {'mean': np.float64(0.7035940803382663), 'std': np.float64(0.047994802955307274)}, 'precision': {'mean': np.float64(0.64474800482865), 'std': np.float64(0.05410203867683451)}, 'recall': {'mean': np.float64(0.9354978354978355), 'std': np.float64(0.04689332870362644)}, 'f1': {'mean': np.float64(0.760425876805187), 'std': np.float64(0.027475427378855805)}, 'auc': {'mean': np.float64(0.8634002361275088), 'std': np.float64(0.04123891060222837)}}
+2025-04-27 20:12:10,199 - INFO - Performing feature importance analysis...
+2025-04-27 20:12:10,897 - INFO - Feature importance analysis completed
+2025-04-27 20:12:10,897 - INFO - Top 10 important features:
+2025-04-27 20:12:10,898 - INFO -                                             feature  importance
+115                             Ethnicity_Caucasian    0.065346
+160                                          %GG_0%    0.053208
+181  Histology _NSCLC NOS (not otherwise specified)    0.046329
+193                         Pathological N stage_N2    0.040745
+14                                           ZNF174    0.036540
+195                         Pathological M stage_M0    0.034013
+133                                   Pack Years_30    0.033243
+138                                   Pack Years_40    0.030534
+225                          Adjuvant Treatment_Yes    0.028830
+494                            Gender_Male_volume_m    0.024688
+2025-04-27 20:12:10,906 - INFO - Performing model interpretability analysis...
+2025-04-27 20:12:13,257 - INFO - Model interpretability analysis completed
+2025-04-27 20:12:13,258 - INFO - Top 10 important features (based on SHAP values):
+2025-04-27 20:12:13,258 - INFO -                      feature  shap_importance
+160                   %GG_0%         0.937360
+133            Pack Years_30         0.568962
+18                     NOP14         0.507921
+10                      IRF4         0.446090
+193  Pathological N stage_N2         0.315711
+115      Ethnicity_Caucasian         0.304433
+14                    ZNF174         0.301747
+24                      HSF4         0.258372
+17                     KLHL2         0.236527
+15                      RYBP         0.226194
+2025-04-27 20:12:13,270 - INFO - Analysis completed. Results saved to 2_data/analysis_results.csv

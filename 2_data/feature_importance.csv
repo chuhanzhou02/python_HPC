@@ -1,0 +1,498 @@
+feature,importance
+Ethnicity_Caucasian,0.06534613
+%GG_0%,0.053208403
+Histology _NSCLC NOS (not otherwise specified),0.046329327
+Pathological N stage_N2,0.040745288
+ZNF174,0.036539856
+Pathological M stage_M0,0.034013294
+Pack Years_30,0.0332427
+Pack Years_40,0.03053354
+Adjuvant Treatment_Yes,0.028829671
+Gender_Male_volume_m,0.02468778
+Days between CT and surgery,0.023756266
+NCOA1,0.022597741
+Pathological T stage_T2a,0.022199709
+Age at Histological Diagnosis_surface_mr,0.022001382
+KLHL2,0.020283913
+SNX8,0.019917138
+surface_mr,0.019740272
+IRF4,0.018456383
+RYBP,0.01793905
+NOP14,0.01789898
+Pathological T stage_T2b,0.016773013
+Ethnicity_Asian,0.016769683
+compactn,0.016562827
+Tumor Location (choice=LLL)_Unchecked,0.015695574
+SLC35C2,0.014742358
+Pathological T stage_T1b,0.013384019
+Gender_Female_volume_m,0.013121248
+DHX35,0.013049684
+SPIN4,0.012911298
+max_diamt,0.012687977
+Ethnicity_Not Recorded In Database,0.011893339
+ZC3HC1,0.011692588
+DPH5,0.01132766
+HSF4,0.011242124
+Histopathological Grade_G3 Poorly differentiated,0.0108327735
+Smoking status_Current,0.010724026
+volume_m,0.010347476
+volume_m_max_diamt,0.0103064235
+Weight (lbs)_Not Collected,0.010264617
+NUMBL,0.010111372
+Histopathological Grade_G1 Well differentiated,0.009974334
+Age at Histological Diagnosis,0.009962851
+volume_m_surface_mr,0.009067476
+TMEM117,0.009056525
+ZBTB24,0.009011501
+Lymphovascular invasion_Not Collected,0.008934818
+Quit Smoking Year,0.008738317
+ECE2,0.0073044105
+Patient affiliation_VA,0.0071084844
+Tumor Location (choice=RLL)_Checked,0.007000764
+FAM195B,0.0066715516
+KRAS mutation status_Unknown,0.0066236868
+Age at Histological Diagnosis_volume_m,0.005744245
+Pathological T stage_T1a,0.005448023
+Gender_Male_max_diamt,0.0049781227
+TRA2B,0.004529307
+Tumor Location (choice=RUL)_Unchecked,0.003404701
+METTL3,0.0032514678
+Age at Histological Diagnosis_max_diamt,0.0031397142
+Tumor Location (choice=LUL)_Unchecked,0.002944719
+"Pleural invasion (elastic, visceral, or parietal)_Yes",0.0028203975
+Histology _Squamous cell carcinoma,0.0025920188
+ALK translocation status_Unknown,0.0022186686
+Patient affiliation_Stanford,0.0018291568
+"Pleural invasion (elastic, visceral, or parietal)_No",0.0017673493
+Gender_Male_surface_mr,0.001664167
+surface_mr_max_diamt,0.0015063462
+Weight (lbs)_128,0.0
+Weight (lbs)_130,0.0
+Weight (lbs)_130.02885,0.0
+Weight (lbs)_132,0.0
+Weight (lbs)_133,0.0
+Weight (lbs)_134.505,0.0
+Weight (lbs)_135,0.0
+Weight (lbs)_137,0.0
+Weight (lbs)_145,0.0
+Weight (lbs)_145.53,0.0
+Weight (lbs)_147.735,0.0
+Weight (lbs)_149,0.0
+Weight (lbs)_150,0.0
+Weight (lbs)_152,0.0
+Weight (lbs)_152.145,0.0
+Weight (lbs)_155,0.0
+Weight (lbs)_156.555,0.0
+Weight (lbs)_157,0.0
+Weight (lbs)_158,0.0
+Weight (lbs)_160.965,0.0
+Weight (lbs)_161,0.0
+Weight (lbs)_163,0.0
+Weight (lbs)_169,0.0
+Weight (lbs)_170,0.0
+Weight (lbs)_171,0.0
+Weight (lbs)_171.99,0.0
+Weight (lbs)_173,0.0
+Weight (lbs)_174,0.0
+Weight (lbs)_174.195,0.0
+Weight (lbs)_175,0.0
+Weight (lbs)_176,0.0
+Weight (lbs)_178.605,0.0
+Weight (lbs)_179,0.0
+Weight (lbs)_180.1926,0.0
+Weight (lbs)_180.81,0.0
+Weight (lbs)_181,0.0
+Weight (lbs)_183,0.0
+Weight (lbs)_183.015,0.0
+Weight (lbs)_185,0.0
+Weight (lbs)_185.22,0.0
+Weight (lbs)_187.425,0.0
+Weight (lbs)_189.63,0.0
+Weight (lbs)_194,0.0
+Weight (lbs)_194.04,0.0
+Weight (lbs)_195,0.0
+Weight (lbs)_198.45,0.0
+Weight (lbs)_198.5,0.0
+Weight (lbs)_199.04535,0.0
+Weight (lbs)_200.655,0.0
+Weight (lbs)_201,0.0
+Weight (lbs)_202.86,0.0
+Weight (lbs)_207,0.0
+Weight (lbs)_207.27,0.0
+Weight (lbs)_208.04175,0.0
+Weight (lbs)_209.475,0.0
+Weight (lbs)_211.68,0.0
+Weight (lbs)_214,0.0
+Weight (lbs)_216.09,0.0
+Weight (lbs)_220.5,0.0
+Weight (lbs)_224.91,0.0
+Weight (lbs)_225,0.0
+Weight (lbs)_229,0.0
+Weight (lbs)_249.165,0.0
+Weight (lbs)_256,0.0
+Weight (lbs)_260,0.0
+Weight (lbs)_269,0.0
+Weight (lbs)_282,0.0
+Weight (lbs)_288.855,0.0
+Weight (lbs)_49.1,0.0
+Weight (lbs)_80,0.0
+Weight (lbs)_94.815,0.0
+Gender_Female,0.0
+Gender_Male,0.0
+Ethnicity_African-American,0.0
+Ethnicity_Hispanic/Latino,0.0
+Ethnicity_Native Hawaiian/Pacific Islander,0.0
+Smoking status_Former,0.0
+Smoking status_Nonsmoker,0.0
+Pack Years_1,0.0
+Pack Years_10,0.0
+Pack Years_100,0.0
+Pack Years_120,0.0
+Pack Years_14,0.0
+Pack Years_15,0.0
+Pack Years_18,0.0
+Pack Years_2,0.0
+Pack Years_20,0.0
+Pack Years_22,0.0
+Pack Years_25,0.0
+Pack Years_34,0.0
+Pack Years_35,0.0
+Pack Years_38,0.0
+Pack Years_4,0.0
+Pack Years_41,0.0
+Pack Years_43,0.0
+Pack Years_45,0.0
+Pack Years_46,0.0
+Pack Years_5,0.0
+Pack Years_50,0.0
+Pack Years_51,0.0
+Pack Years_52,0.0
+Pack Years_53,0.0
+Pack Years_54,0.0
+Pack Years_56,0.0
+Pack Years_60,0.0
+Pack Years_63,0.0
+Pack Years_65,0.0
+Pack Years_70,0.0
+Pack Years_75,0.0
+Pack Years_8,0.0
+Pack Years_80,0.0
+Pack Years_90,0.0
+Pack Years_98,0.0
+Pack Years_Not Collected,0.0
+%GG_100%,0.0
+%GG_25 - 50%,0.0
+%GG_50 - 75%,0.0
+%GG_75 - _ 100%,0.0
+%GG_>0 - 25%,0.0
+%GG_Not Assessed,0.0
+Tumor Location (choice=RUL)_Checked,0.0
+Tumor Location (choice=RML)_Checked,0.0
+Tumor Location (choice=RML)_Unchecked,0.0
+Tumor Location (choice=RLL)_Unchecked,0.0
+Tumor Location (choice=LUL)_Checked,0.0
+Tumor Location (choice=LLL)_Checked,0.0
+Tumor Location (choice=L Lingula)_Checked,0.0
+Tumor Location (choice=L Lingula)_Unchecked,0.0
+Tumor Location (choice=Unknown)_Unchecked,0.0
+Histology _Adenocarcinoma,0.0
+Pathological T stage_Not Collected,0.0
+Pathological T stage_T3,0.0
+Pathological T stage_T4,0.0
+Pathological T stage_Tis,0.0
+Pathological N stage_N0,0.0
+Pathological N stage_N1,0.0
+Pathological N stage_Not Collected,0.0
+Pathological M stage_M1a,0.0
+Pathological M stage_M1b,0.0
+Pathological M stage_Not Collected,0.0
+Histopathological Grade_G2 Moderately differentiated,0.0
+Histopathological Grade_Not Collected,0.0
+"Histopathological Grade_Other, Type I: Well to moderately differentiated",0.0
+"Histopathological Grade_Other, Type II: Moderately to poorly differentiated",0.0
+Lymphovascular invasion_Absent,0.0
+Lymphovascular invasion_Present,0.0
+"Pleural invasion (elastic, visceral, or parietal)_Not collected",0.0
+EGFR mutation status_Mutant,0.0
+EGFR mutation status_Not collected,0.0
+EGFR mutation status_Unknown,0.0
+EGFR mutation status_Wildtype,0.0
+KRAS mutation status_Mutant,0.0
+KRAS mutation status_Not collected,0.0
+KRAS mutation status_Wildtype,0.0
+ALK translocation status_Not collected,0.0
+ALK translocation status_Translocated,0.0
+ALK translocation status_Wildtype,0.0
+Adjuvant Treatment_No,0.0
+Adjuvant Treatment_Not Collected,0.0
+Chemotherapy_No,0.0
+Chemotherapy_Not Collected,0.0
+Chemotherapy_Yes,0.0
+Radiation_No,0.0
+Radiation_Not Collected,0.0
+Radiation_Yes,0.0
+CT Date_1/11/1994,0.0
+CT Date_1/12/1994,0.0
+CT Date_1/12/1996,0.0
+CT Date_1/14/1994,0.0
+CT Date_1/15/1992,0.0
+CT Date_1/15/1993,0.0
+CT Date_1/15/1994,0.0
+CT Date_1/18/1996,0.0
+CT Date_1/27/1995,0.0
+CT Date_1/28/1994,0.0
+CT Date_1/5/1991,0.0
+CT Date_1/5/1995,0.0
+CT Date_1/6/1991,0.0
+CT Date_1/6/1993,0.0
+CT Date_10/14/1993,0.0
+CT Date_10/16/1990,0.0
+CT Date_10/16/1991,0.0
+CT Date_10/17/1995,0.0
+CT Date_10/20/1995,0.0
+CT Date_10/25/1991,0.0
+CT Date_10/25/1995,0.0
+CT Date_10/3/1993,0.0
+CT Date_11/1/1995,0.0
+CT Date_11/10/1993,0.0
+CT Date_11/11/1993,0.0
+CT Date_11/13/1990,0.0
+CT Date_11/17/1994,0.0
+CT Date_11/18/1992,0.0
+CT Date_11/21/1992,0.0
+CT Date_11/22/1995,0.0
+CT Date_11/23/1990,0.0
+CT Date_11/23/1995,0.0
+CT Date_11/26/1994,0.0
+CT Date_11/3/1993,0.0
+CT Date_11/7/1989,0.0
+CT Date_11/9/1995,0.0
+CT Date_12/1/1993,0.0
+CT Date_12/10/1991,0.0
+CT Date_12/20/1995,0.0
+CT Date_12/21/1994,0.0
+CT Date_12/22/1993,0.0
+CT Date_12/26/1992,0.0
+CT Date_12/3/1991,0.0
+CT Date_12/3/1993,0.0
+CT Date_12/30/1993,0.0
+CT Date_12/5/1990,0.0
+CT Date_12/6/1995,0.0
+CT Date_2/10/1994,0.0
+CT Date_2/14/1995,0.0
+CT Date_2/18/1993,0.0
+CT Date_2/22/1992,0.0
+CT Date_2/22/1995,0.0
+CT Date_2/23/1995,0.0
+CT Date_2/25/1994,0.0
+CT Date_2/25/1995,0.0
+CT Date_2/26/1994,0.0
+CT Date_2/28/1995,0.0
+CT Date_2/28/1996,0.0
+CT Date_2/5/1992,0.0
+CT Date_2/5/1994,0.0
+CT Date_2/9/1991,0.0
+CT Date_3/1/1994,0.0
+CT Date_3/11/1994,0.0
+CT Date_3/16/1995,0.0
+CT Date_3/18/1994,0.0
+CT Date_3/21/1994,0.0
+CT Date_3/23/1995,0.0
+CT Date_3/25/1995,0.0
+CT Date_3/30/1993,0.0
+CT Date_3/30/1996,0.0
+CT Date_3/4/1993,0.0
+CT Date_3/8/1991,0.0
+CT Date_3/9/1994,0.0
+CT Date_3/9/1995,0.0
+CT Date_4/12/1995,0.0
+CT Date_4/20/1991,0.0
+CT Date_4/23/1994,0.0
+CT Date_4/27/1994,0.0
+CT Date_4/27/1996,0.0
+CT Date_4/28/1994,0.0
+CT Date_4/30/1993,0.0
+CT Date_4/5/1992,0.0
+CT Date_4/6/1995,0.0
+CT Date_5/18/1994,0.0
+CT Date_5/19/1994,0.0
+CT Date_5/21/1992,0.0
+CT Date_5/21/1994,0.0
+CT Date_5/23/1996,0.0
+CT Date_5/29/1992,0.0
+CT Date_5/31/1992,0.0
+CT Date_5/4/1995,0.0
+CT Date_5/6/1994,0.0
+CT Date_6/14/1995,0.0
+CT Date_6/17/1993,0.0
+CT Date_6/18/1994,0.0
+CT Date_6/21/1995,0.0
+CT Date_6/22/1994,0.0
+CT Date_6/23/1994,0.0
+CT Date_6/26/1996,0.0
+CT Date_6/27/1992,0.0
+CT Date_6/28/1995,0.0
+CT Date_6/3/1993,0.0
+CT Date_6/9/1993,0.0
+CT Date_7/14/1995,0.0
+CT Date_7/15/1993,0.0
+CT Date_7/21/1993,0.0
+CT Date_7/21/1994,0.0
+CT Date_7/29/1995,0.0
+CT Date_7/30/1994,0.0
+CT Date_7/31/1993,0.0
+CT Date_7/5/1994,0.0
+CT Date_7/6/1992,0.0
+CT Date_7/6/1994,0.0
+CT Date_7/7/1995,0.0
+CT Date_8/12/1993,0.0
+CT Date_8/12/1995,0.0
+CT Date_8/17/1995,0.0
+CT Date_8/2/1994,0.0
+CT Date_8/21/1992,0.0
+CT Date_8/28/1993,0.0
+CT Date_8/28/1996,0.0
+CT Date_8/5/1990,0.0
+CT Date_8/5/1993,0.0
+CT Date_8/9/1991,0.0
+CT Date_9/1/1993,0.0
+CT Date_9/1/1994,0.0
+CT Date_9/11/1993,0.0
+CT Date_9/11/1996,0.0
+CT Date_9/17/1992,0.0
+CT Date_9/21/1993,0.0
+CT Date_9/22/1993,0.0
+CT Date_9/23/1993,0.0
+CT Date_9/23/1995,0.0
+CT Date_9/25/1993,0.0
+CT Date_9/29/1992,0.0
+CT Date_9/7/1992,0.0
+CT Date_9/7/1994,0.0
+CT Date_9/8/1994,0.0
+CT Date_9/8/1995,0.0
+CT Date_9/9/1991,0.0
+PET Date_1/1/1994,0.0
+PET Date_1/10/1992,0.0
+PET Date_1/12/1994,0.0
+PET Date_1/13/1990,0.0
+PET Date_1/18/1996,0.0
+PET Date_1/23/1991,0.0
+PET Date_1/5/1995,0.0
+PET Date_1/6/1995,0.0
+PET Date_10/12/1993,0.0
+PET Date_10/13/1995,0.0
+PET Date_10/16/1991,0.0
+PET Date_10/17/1991,0.0
+PET Date_10/18/1994,0.0
+PET Date_10/20/1995,0.0
+PET Date_10/22/1993,0.0
+PET Date_10/3/1992,0.0
+PET Date_10/30/1993,0.0
+PET Date_10/5/1995,0.0
+PET Date_10/9/1993,0.0
+PET Date_11/12/1993,0.0
+PET Date_11/18/1992,0.0
+PET Date_11/26/1993,0.0
+PET Date_11/26/1994,0.0
+PET Date_11/28/1990,0.0
+PET Date_11/29/1995,0.0
+PET Date_11/3/1990,0.0
+PET Date_11/30/1994,0.0
+PET Date_11/4/1994,0.0
+PET Date_11/6/1993,0.0
+PET Date_11/7/1991,0.0
+PET Date_12/10/1991,0.0
+PET Date_12/11/1990,0.0
+PET Date_12/13/1995,0.0
+PET Date_12/16/1995,0.0
+PET Date_12/19/1991,0.0
+PET Date_12/21/1995,0.0
+PET Date_12/22/1990,0.0
+PET Date_12/22/1995,0.0
+PET Date_12/29/1993,0.0
+PET Date_12/30/1993,0.0
+PET Date_12/5/1995,0.0
+PET Date_2/11/1994,0.0
+PET Date_2/11/1995,0.0
+PET Date_2/14/1995,0.0
+PET Date_2/15/1994,0.0
+PET Date_2/17/1994,0.0
+PET Date_2/25/1995,0.0
+PET Date_2/26/1994,0.0
+PET Date_2/4/1994,0.0
+PET Date_3/1/1995,0.0
+PET Date_3/10/1995,0.0
+PET Date_3/2/1993,0.0
+PET Date_3/2/1995,0.0
+PET Date_3/23/1991,0.0
+PET Date_3/23/1995,0.0
+PET Date_3/24/1994,0.0
+PET Date_3/25/1995,0.0
+PET Date_3/3/1995,0.0
+PET Date_3/30/1996,0.0
+PET Date_3/31/1995,0.0
+PET Date_3/8/1995,0.0
+PET Date_4/1/1995,0.0
+PET Date_4/12/1995,0.0
+PET Date_4/13/1995,0.0
+PET Date_4/19/1991,0.0
+PET Date_4/21/1994,0.0
+PET Date_4/27/1996,0.0
+PET Date_4/7/1993,0.0
+PET Date_4/7/1994,0.0
+PET Date_4/7/1995,0.0
+PET Date_5/11/1994,0.0
+PET Date_5/11/1996,0.0
+PET Date_5/21/1992,0.0
+PET Date_5/23/1996,0.0
+PET Date_5/26/1993,0.0
+PET Date_5/28/1992,0.0
+PET Date_5/29/1992,0.0
+PET Date_5/29/1993,0.0
+PET Date_5/3/1994,0.0
+PET Date_5/31/1995,0.0
+PET Date_5/4/1995,0.0
+PET Date_5/7/1991,0.0
+PET Date_6/10/1994,0.0
+PET Date_6/11/1991,0.0
+PET Date_6/23/1993,0.0
+PET Date_6/26/1996,0.0
+PET Date_6/27/1992,0.0
+PET Date_6/29/1995,0.0
+PET Date_6/3/1994,0.0
+PET Date_7/10/1993,0.0
+PET Date_7/19/1995,0.0
+PET Date_7/2/1994,0.0
+PET Date_7/20/1993,0.0
+PET Date_9/7/1994,0.0
+PET Date_9/8/1994,0.0
+PET Date_9/8/1995,0.0
+PET Date_Not Collected,0.0
+PET Date_8/14/1991,0.0
+PET Date_8/17/1995,0.0
+PET Date_8/2/1994,0.0
+PET Date_8/25/1993,0.0
+PET Date_8/26/1995,0.0
+PET Date_8/28/1996,0.0
+PET Date_8/31/1994,0.0
+Gender_Female_surface_mr,0.0
+Gender_Female_max_diamt,0.0
+PET Date_8/5/1993,0.0
+PET Date_8/6/1993,0.0
+PET Date_8/7/1993,0.0
+PET Date_7/4/1992,0.0
+PET Date_9/11/1993,0.0
+PET Date_9/12/1995,0.0
+PET Date_9/14/1990,0.0
+PET Date_9/21/1996,0.0
+Weight (lbs)_102,0.0
+Weight (lbs)_103.635,0.0
+Weight (lbs)_104,0.0
+Weight (lbs)_108.045,0.0
+Weight (lbs)_110.1177,0.0
+Weight (lbs)_111.5815,0.0
+Weight (lbs)_112,0.0
+Weight (lbs)_114.66,0.0
+Weight (lbs)_125,0.0
+Weight (lbs)_126,0.0
+PET Date_9/23/1992,0.0
